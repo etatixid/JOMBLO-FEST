@@ -2,253 +2,320 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>Artatix - E-Ticket Berhasil</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 <style>
-:root {
-  --primary: #4F46E5;
-  --primary-dark: #3730A3;
-  --primary-light: #818CF8;
-  --primary-glow: rgba(79, 70, 229, 0.2);
-  --bg-main: #F8FAFC;
-  --card-bg: #FFFFFF;
-  --card-border: #E2E8F0;
-  --text-main: #1E293B;
-  --text-muted: #64748B;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    -webkit-tap-highlight-color: transparent;
 }
-
-* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
 
 body {
-  background: var(--bg-main);
-  color: var(--text-main);
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
+    background: #F4F6FA;
+    color: #1F2937;
 }
 
+/* ================= CONTAINER (Carrd Style) ================= */
 .container {
-  max-width: 480px;
-  width: 100%;
-  text-align: center;
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+    background: #fff;
+    min-height: 100vh;
+    box-shadow: 0 0 40px rgba(0,0,0,0.05);
+    position: relative;
+    padding-bottom: 40px;
 }
 
-/* ── Success Icon ── */
+/* ================= HEADER ================= */
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    position: sticky;
+    top: 0;
+    background: #fff;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.logo-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    object-fit: cover;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.logo-text {
+    font-size: 20px;
+    font-weight: 800;
+    color: #1F2937;
+    letter-spacing: -0.5px;
+}
+
+.lang {
+    background: #F4F6FA;
+    padding: 8px 14px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #4B5563;
+}
+
+/* ================= CONTENT ================= */
+.content {
+    padding: 40px 20px 20px;
+    text-align: center;
+}
+
+/* ================= SUCCESS ICON ================= */
 .success-checkmark {
-  width: 80px;
-  height: 80px;
-  background: #10B981;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 20px;
-  box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);
-  animation: scaleIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) backwards;
+    width: 80px;
+    height: 80px;
+    background: #10B981;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);
+    animation: scaleIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) backwards;
 }
 
 .success-checkmark i {
-  color: #fff;
-  font-size: 40px;
-  animation: checkDraw 0.5s ease 0.2s backwards;
+    color: #fff;
+    font-size: 40px;
+    animation: checkDraw 0.5s ease 0.2s backwards;
 }
 
 @keyframes scaleIn {
-  0% { transform: scale(0); }
-  100% { transform: scale(1); }
+    0% { transform: scale(0); }
+    100% { transform: scale(1); }
 }
 
 @keyframes checkDraw {
-  0% { opacity: 0; transform: scale(0.5); }
-  100% { opacity: 1; transform: scale(1); }
+    0% { opacity: 0; transform: scale(0.5); }
+    100% { opacity: 1; transform: scale(1); }
 }
 
 .success-text h1 {
-  font-size: 24px;
-  font-weight: 800;
-  color: var(--text-main);
-  margin-bottom: 8px;
+    font-size: 22px;
+    font-weight: 800;
+    color: #1F2937;
+    margin-bottom: 8px;
 }
 
 .success-text p {
-  color: var(--text-muted);
-  font-size: 14px;
-  margin-bottom: 30px;
+    color: #6B7280;
+    font-size: 13px;
+    margin-bottom: 30px;
+    line-height: 1.6;
 }
 
-/* ── Ticket Card ── */
+/* ================= TICKET CARD ================= */
 .ticket-card {
-  background: var(--card-bg);
-  border-radius: 24px;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.08);
-  border: 1px solid var(--card-border);
-  overflow: hidden;
-  position: relative;
-  text-align: left;
-  animation: fadeUp 0.6s ease 0.2s backwards;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+    border: 1px solid #E5E7EB;
+    overflow: hidden;
+    position: relative;
+    text-align: left;
+    animation: fadeUp 0.6s ease 0.2s backwards;
 }
 
 @keyframes fadeUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .ticket-header {
-  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-  padding: 24px;
-  color: #fff;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    background: linear-gradient(135deg, #3561FF, #2143d8);
+    padding: 20px;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .ticket-header h2 {
-  font-size: 18px;
-  font-weight: 800;
-  line-height: 1.3;
+    font-size: 16px;
+    font-weight: 800;
+    line-height: 1.3;
 }
 
-.ticket-header .logo-img {
-  width: 36px;
-  height: 36px;
-  border-radius: 8px;
-  background: #fff;
-  padding: 4px;
+.ticket-header .header-logo {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background: #fff;
+    padding: 4px;
+    box-shadow: none;
 }
 
 .ticket-body {
-  padding: 24px;
+    padding: 20px;
 }
 
 .detail-row {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 16px;
-  padding-bottom: 16px;
-  border-bottom: 1px dashed #E2E8F0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+    padding-bottom: 14px;
+    border-bottom: 1px dashed #E5E7EB;
 }
 
 .detail-row:last-of-type {
-  border-bottom: none;
-  margin-bottom: 0;
-  padding-bottom: 0;
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
 }
 
 .detail-label {
-  font-size: 12px;
-  color: var(--text-muted);
-  display: block;
-  margin-bottom: 4px;
+    font-size: 11px;
+    color: #6B7280;
+    display: block;
+    margin-bottom: 2px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .detail-value {
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--text-main);
-  text-align: right;
-  word-break: break-word;
+    font-size: 14px;
+    font-weight: 700;
+    color: #1F2937;
+    text-align: right;
+    word-break: break-word;
 }
 
-/* ── QR Code Section ── */
+/* ================= QR CODE SECTION ================= */
 .qr-section {
-  padding: 24px;
-  background: #F8FAFC;
-  border-top: 1px dashed #E2E8F0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
+    padding: 24px 20px;
+    background: #F4F6FA;
+    border-top: 1px dashed #E5E7EB;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
 }
 
 /* Effect lubang tiket di sisi kiri dan kanan */
 .qr-section::before, .qr-section::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  width: 24px;
-  height: 24px;
-  background: var(--bg-main);
-  border-radius: 50%;
-  transform: translateY(-50%);
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 24px;
+    height: 24px;
+    background: #fff;
+    border-radius: 50%;
+    transform: translateY(-50%);
+    box-shadow: inset 0 0 0 1px #E5E7EB;
 }
 .qr-section::before { left: -12px; }
 .qr-section::after { right: -12px; }
 
 .qr-img-box {
-  background: #fff;
-  padding: 12px;
-  border-radius: 16px;
-  border: 1px solid var(--card-border);
-  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    background: #fff;
+    padding: 10px;
+    border-radius: 12px;
+    border: 1px solid #E5E7EB;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
 }
 
 .qr-img-box img {
-  width: 140px;
-  height: 140px;
-  display: block;
+    width: 140px;
+    height: 140px;
+    display: block;
 }
 
 .qr-info {
-  margin-top: 12px;
-  font-size: 11px;
-  color: var(--text-muted);
-  font-family: monospace;
-  letter-spacing: 1px;
+    margin-top: 12px;
+    font-size: 11px;
+    color: #6B7280;
+    font-family: monospace;
+    letter-spacing: 1px;
+    text-transform: uppercase;
 }
 
-/* ── Buttons ── */
+/* ================= BUTTONS ================= */
 .btn-group {
-  display: flex;
-  gap: 12px;
-  margin-top: 24px;
+    display: flex;
+    gap: 12px;
+    margin-top: 24px;
 }
 
 .btn {
-  flex: 1;
-  padding: 16px;
-  border: none;
-  border-radius: 14px;
-  font-size: 15px;
-  font-weight: 700;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  transition: 0.3s;
+    flex: 1;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: 0.25s ease;
 }
 
 .btn-primary {
-  background: var(--primary);
-  color: #fff;
-  box-shadow: 0 4px 15px var(--primary-glow);
+    background: #3561FF;
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(53,97,255,0.3);
 }
 
 .btn-primary:hover {
-  background: var(--primary-dark);
-  transform: translateY(-2px);
+    background: #2143d8;
+    transform: translateY(-1px);
 }
 
 .btn-secondary {
-  background: #fff;
-  color: var(--text-main);
-  border: 1px solid var(--card-border);
+    background: #fff;
+    color: #1F2937;
+    border: 1px solid #E5E7EB;
 }
 
 .btn-secondary:hover {
-  background: #F8FAFC;
-  transform: translateY(-2px);
+    background: #F4F6FA;
+    transform: translateY(-1px);
 }
 
-/* ── Print Settings ── */
+/* ================= FOOTER ================= */
+.footer-section {
+    text-align: center;
+    padding: 40px 20px 0;
+    margin-top: 30px;
+    border-top: 1px solid #E5E7EB;
+}
+.footer-logo { width: 50px; height: 50px; border-radius: 12px; margin-bottom: 12px; }
+.footer-section h3 { font-size: 18px; font-weight: 800; color: #1F2937; }
+.footer-section p { font-size: 13px; color: #6B7280; margin-top: 4px; }
+.footer-contact { margin-top: 16px; display: flex; flex-direction: column; gap: 8px; }
+.footer-contact a { font-size: 14px; color: #3561FF; text-decoration: none; font-weight: 600; }
+.footer-copyright { margin-top: 24px; font-size: 12px; color: #9CA3AF; }
+
+/* ================= PRINT SETTINGS ================= */
 @media print {
-  body { background: #fff; padding: 0; align-items: flex-start; }
-  .container { max-width: 100%; }
-  .success-checkmark, .success-text, .btn-group { display: none !important; }
+  body { background: #fff; }
+  .container { max-width: 100%; box-shadow: none; }
+  .topbar, .success-checkmark, .success-text, .btn-group, .footer-section { display: none !important; }
+  .content { padding: 0; }
   .ticket-card { box-shadow: none; border: none; border-radius: 0; }
 }
 </style>
@@ -257,100 +324,161 @@ body {
 
 <div class="container">
 
-  <div class="success-checkmark">
-    <i class="fa-solid fa-check"></i>
-  </div>
-  
-  <div class="success-text">
-    <h1>Pembayaran Berhasil!</h1>
-    <p>E-tiket Anda telah diterbitkan. Tunjukkan tiket ini saat masuk area acara.</p>
-  </div>
-
-  <div class="ticket-card">
-    
-    <div class="ticket-header">
-      <h2>JOMLO FESTIVAL 2026<br><small style="font-weight:500;opacity:0.9;">Chapter Jogja</small></h2>
-      <img src="logo.png" alt="Artatix" class="logo-img">
+    <!-- ================= HEADER ================= -->
+    <div class="topbar">
+        <a href="index.html" class="logo">
+            <img src="logo.png" alt="Logo Artatix" class="logo-img">
+            <div class="logo-text">Artatix</div>
+        </a>
+        <div class="lang">🇮🇩 ID</div>
     </div>
 
-    <div class="ticket-body">
-      <div class="detail-row">
-        <div>
-          <span class="detail-label">Order ID</span>
-          <span class="detail-value" id="no" style="color: var(--primary);">-</span>
-        </div>
-        <i class="fa-solid fa-ticket" style="color: var(--primary); font-size: 20px;"></i>
-      </div>
+    <!-- ================= MAIN CONTENT ================= -->
+    <div class="content">
 
-      <div class="detail-row">
-        <div>
-          <span class="detail-label">Nama Pemesan</span>
-          <span class="detail-value" id="nm">-</span>
+        <div class="success-checkmark">
+            <i class="fa-solid fa-check"></i>
         </div>
-      </div>
+        
+        <div class="success-text">
+            <h1>Pembayaran Berhasil!</h1>
+            <p>E-tiket Anda telah diterbitkan. Tunjukkan tiket ini saat masuk area acara.</p>
+        </div>
 
-      <div class="detail-row">
-        <div>
-          <span class="detail-label">E-mail</span>
-          <span class="detail-value" id="em">-</span>
-        </div>
-      </div>
+        <!-- TICKET CARD -->
+        <div class="ticket-card">
+            
+            <div class="ticket-header">
+                <h2>JOMLO FESTIVAL 2026<br><small style="font-weight:500;opacity:0.9;">Chapter Jogja</small></h2>
+                <img src="logo.png" alt="Artatix" class="header-logo">
+            </div>
 
-      <div class="detail-row">
-        <div>
-          <span class="detail-label">Kategori Tiket</span>
-          <span class="detail-value" id="kt">-</span>
-        </div>
-      </div>
+            <div class="ticket-body">
+                <div class="detail-row">
+                    <div>
+                        <span class="detail-label">Order ID</span>
+                        <span class="detail-value" id="no" style="color: #3561FF;">-</span>
+                    </div>
+                    <i class="fa-solid fa-ticket" style="color: #3561FF; font-size: 20px;"></i>
+                </div>
 
-      <div class="detail-row">
-        <div>
-          <span class="detail-label">Total Pembayaran</span>
-          <span class="detail-value" id="hg">Rp 0</span>
+                <div class="detail-row">
+                    <div>
+                        <span class="detail-label">Nama Pemesan</span>
+                        <span class="detail-value" id="nm">-</span>
+                    </div>
+                </div>
+
+                <div class="detail-row">
+                    <div>
+                        <span class="detail-label">E-mail</span>
+                        <span class="detail-value" id="em">-</span>
+                    </div>
+                </div>
+
+                <div class="detail-row">
+                    <div>
+                        <span class="detail-label">Kategori Tiket</span>
+                        <span class="detail-value" id="kt">-</span>
+                    </div>
+                </div>
+
+                <div class="detail-row">
+                    <div>
+                        <span class="detail-label">Total Pembayaran</span>
+                        <span class="detail-value" id="hg">Rp 0</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="qr-section">
+                <div class="qr-img-box">
+                    <img id="qrCodeImg" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=ARTATIX-TICKET" alt="QR Code Tiket">
+                </div>
+                <div class="qr-info">Scan di pintu masuk</div>
+            </div>
+
         </div>
-      </div>
+
+        <!-- BUTTONS -->
+        <div class="btn-group">
+            <button class="btn btn-secondary" onclick="window.print()">
+                <i class="fa-solid fa-print"></i> Print Tiket
+            </button>
+            <button class="btn btn-primary" onclick="location.href='index.html'">
+                <i class="fa-solid fa-house"></i> Ke Beranda
+            </button>
+        </div>
+
+        <!-- ================= FOOTER ================= -->
+        <div class="footer-section">
+            <img src="logo.png" alt="Artatix" class="footer-logo">
+            <h3>Artatix.co.id</h3>
+            <p>Platform Tiket Acara & Konser Terpercaya</p>
+            
+            <div class="footer-contact">
+                <a href="tel:+6282137676220">📞 +62 821–3767–6220</a>
+                <a href="mailto:cs@artatix.co.id">✉️ cs@artatix.co.id</a>
+            </div>
+            
+            <div class="footer-copyright">
+                © 2026 Artatix. All Rights Reserved.
+            </div>
+        </div>
+
     </div>
-
-    <div class="qr-section">
-      <div class="qr-img-box">
-        <!-- QR Code di-generate secara dinamis menggunakan API QRServer berdasarkan Order ID -->
-        <img id="qrCodeImg" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=ARTATIX-TICKET" alt="QR Code Tiket">
-      </div>
-      <div class="qr-info">Scan di pintu masuk</div>
-    </div>
-
-  </div>
-
-  <div class="btn-group">
-    <button class="btn btn-secondary" onclick="window.print()">
-      <i class="fa-solid fa-print"></i> Print Tiket
-    </button>
-    <button class="btn btn-primary" onclick="location.href='index.html'">
-      <i class="fa-solid fa-house"></i> Ke Beranda
-    </button>
-  </div>
-
 </div>
 
 <script>
-// ── Ambil data dari localStorage (Sesuai Alur Artatix) ──
-const order = JSON.parse(localStorage.getItem('etatix_order') || '{}');
+// ==========================================
+// 1. MENGAMBIL DATA DARI FORM/QRIS (LOCALSTORAGE)
+// ==========================================
+// Mengambil 'data_pemesan' yang disimpan di form.html
+const order = JSON.parse(localStorage.getItem('data_pemesan') || '{}');
 const orderId = localStorage.getItem('orderId') || ('JOMLO-' + Date.now());
 
 const cart = order.cart || { items: [], totalPrice: 0 };
 const totalStr = 'Rp ' + Number(cart.totalPrice || 0).toLocaleString('id-ID');
 const kategoriStr = (cart.items || []).map(i => `${i.jenis} (x${i.qty})`).join(', ') || '-';
 
-// ── Isi E-Tiket ──
+// ==========================================
+// 2. ISI E-TIKET DENGAN DATA
+// ==========================================
 document.getElementById('no').textContent = orderId;
 document.getElementById('nm').textContent = order.nama || '-';
 document.getElementById('em').textContent = order.email || '-';
 document.getElementById('kt').textContent = kategoriStr;
 document.getElementById('hg').textContent = totalStr;
 
-// ── Generate QR Code Asli berdasarkan Order ID ──
-const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(orderId + ' | ' + order.nama + ' | ' + kategoriStr)}`;
+// ==========================================
+// 3. GENERATE QR CODE ASLI BERDASARKAN ORDER ID
+// ==========================================
+const qrData = `${orderId} | ${order.nama || 'Guest'} | ${kategoriStr}`;
+const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(qrData)}`;
 document.getElementById('qrCodeImg').src = qrUrl;
+
+// ==========================================
+// 4. OPSIONAL: HAPUS DATA SETELAH TIKET DITERBITKAN
+// ==========================================
+// Agar user tidak bisa refresh halaman terus menerus dan agar keranjang kosong jika beli lagi
+// Uncomment jika ingin mengaktifkan penghapusan otomatis
+/*
+setTimeout(function() {
+    localStorage.removeItem('checkout_items');
+    localStorage.removeItem('jumlahTiket');
+    localStorage.removeItem('totalPembayaran');
+    localStorage.removeItem('data_pemesan');
+    localStorage.removeItem('orderId');
+    
+    // Hapus draft form
+    localStorage.removeItem('draft_nama');
+    localStorage.removeItem('draft_identitas');
+    localStorage.removeItem('draft_nomorId');
+    localStorage.removeItem('draft_email');
+    localStorage.removeItem('draft_wa');
+    localStorage.removeItem('draft_alamat');
+}, 5000);
+*/
 </script>
 
 </body>
