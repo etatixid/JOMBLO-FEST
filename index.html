@@ -4,9 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Jomlo Festival 2026 Chapter Jogja</title>
-
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
 <style>
 *{
     margin:0;
@@ -15,17 +13,17 @@
     font-family:'Plus Jakarta Sans',sans-serif;
 }
 
-html {
-    scroll-behavior: smooth; /* Aktifkan scroll halus */
+html{
+    scroll-behavior:smooth;
 }
 
 body{
     background:#f4f6fa;
     color:#0f172a;
-    padding-bottom:140px;
+    padding-bottom:90px;
 }
 
-/* Navbar */
+/* ===== NAVBAR ===== */
 .header{
     background:linear-gradient(135deg,#1038c8,#4f46e5);
     padding:10px 16px;
@@ -40,10 +38,10 @@ body{
     min-height:60px;
 }
 
-.logo{
-    font-size:22px;
-    font-weight:800;
-    letter-spacing:-0.5px;
+.logo-img{
+    height:36px;
+    width:auto;
+    object-fit:contain;
 }
 
 .header-right{
@@ -75,7 +73,7 @@ body{
     font-size:12px;
 }
 
-/* Banner */
+/* ===== BANNER ===== */
 .banner-container{
     width:100%;
     max-height:320px;
@@ -94,6 +92,7 @@ body{
     display:block;
 }
 
+/* ===== CONTENT WRAPPER ===== */
 .content{
     padding:20px 16px;
     max-width:600px;
@@ -129,7 +128,7 @@ body{
 .detail{
     display:flex;
     gap:14px;
-    margin-bottom:16px;
+    margin-bottom:14px;
     align-items:center;
 }
 
@@ -211,7 +210,7 @@ body{
 }
 .social-btn:hover{ background:#dbe7ff; }
 
-/* Tabs Menu (Sticky di bawah Navbar) */
+/* ===== TABS ===== */
 .tabs{
     display:flex;
     gap:24px;
@@ -219,7 +218,7 @@ body{
     margin-bottom:24px;
     background:#f4f6fa;
     position:sticky;
-    top:60px; /* Menempel tepat di bawah navbar */
+    top:60px;
     z-index:900;
     padding-top:10px;
 }
@@ -236,22 +235,22 @@ body{
     display:block;
 }
 
-.tab.active, .tab:hover{
+.tab.active,.tab:hover{
     color:#111827;
     border-bottom:3px solid #3561ff;
     margin-bottom:-2px;
 }
 
-/* Content Sections */
-.content-section {
-    margin-top:40px;
-    scroll-margin-top: 110px; /* Offset agar tidak ketutup navbar & tabs saat di-scroll */
+/* ===== SECTIONS ===== */
+.content-section{
+    margin-top:36px;
+    scroll-margin-top:115px;
 }
 
 h2{
     font-size:16px;
     font-weight:800;
-    margin-bottom:16px;
+    margin-bottom:14px;
     color:#111827;
 }
 
@@ -261,6 +260,9 @@ h2{
     color:#333;
 }
 
+.description p{ margin-bottom:12px; }
+.description p:last-child{ margin-bottom:0; }
+
 .terms{
     font-size:14px;
     line-height:1.8;
@@ -269,7 +271,7 @@ h2{
 }
 
 .terms li{
-    margin-bottom:14px;
+    margin-bottom:12px;
 }
 
 .terms ul{
@@ -294,10 +296,10 @@ h2{
     color:#111827;
 }
 
-/* Fasilitas Grid */
+/* ===== FASILITAS ===== */
 .facilities-grid{
     display:grid;
-    grid-template-columns:repeat(2, 1fr);
+    grid-template-columns:repeat(2,1fr);
     gap:12px;
 }
 
@@ -326,9 +328,9 @@ h2{
     flex-shrink:0;
 }
 
-/* Footer */
+/* ===== FOOTER ===== */
 .footer{
-    margin-top:60px;
+    margin-top:50px;
     padding-top:24px;
     border-top:1px solid #e5e7eb;
     text-align:center;
@@ -344,13 +346,13 @@ h2{
     font-size:14px;
 }
 
-/* Sticky Buy Button */
+/* ===== FLYING BUTTON (Slim) ===== */
 .sticky{
     position:fixed;
     left:0;
     right:0;
     bottom:0;
-    padding:12px 16px 20px;
+    padding:8px 12px 12px;
     background:rgba(255,255,255,.95);
     backdrop-filter:blur(10px);
     border-top:1px solid #e5e7eb;
@@ -359,51 +361,52 @@ h2{
 
 .ticket-box{
     background:#ffffff;
-    padding:12px 16px;
-    border-radius:16px;
-    box-shadow:0 4px 18px rgba(0,0,0,.08);
+    padding:8px 14px;
+    border-radius:12px;
+    box-shadow:0 4px 14px rgba(0,0,0,.08);
     max-width:600px;
     margin:0 auto;
     display:flex;
     align-items:center;
     justify-content:space-between;
-    gap:16px;
+    gap:12px;
 }
 
 .price-info{
     display:flex;
     flex-direction:column;
+    line-height:1.2;
 }
 
 .price-label{
-    font-size:12px;
+    font-size:11px;
     color:#6b7280;
     font-weight:600;
 }
 
 .price{
-    font-size:18px;
+    font-size:16px;
     font-weight:800;
     color:#111827;
 }
 
 .buy-btn{
-    flex:1;
     border:none;
     background:#3561ff;
     color:#fff;
-    font-size:15px;
+    font-size:13px;
     font-weight:800;
-    padding:14px 24px;
-    border-radius:14px;
+    padding:8px 20px;
+    border-radius:10px;
     cursor:pointer;
-    box-shadow:0 10px 25px rgba(53,97,255,.35);
+    box-shadow:0 6px 16px rgba(53,97,255,.35);
     transition:all .25s ease;
-    max-width:200px;
+    white-space:nowrap;
+    letter-spacing:0.3px;
 }
 .buy-btn:hover{
-    transform:translateY(-2px);
-    box-shadow:0 15px 30px rgba(53,97,255,.45);
+    transform:translateY(-1px);
+    box-shadow:0 8px 20px rgba(53,97,255,.45);
 }
 .buy-btn:active{
     transform:scale(.98);
@@ -414,15 +417,18 @@ h2{
     .tabs{ gap:16px; }
     .tab{ font-size:13px; }
     .facilities-grid{ grid-template-columns:1fr; }
-    .ticket-box{ flex-direction:column; gap:10px; }
-    .buy-btn{ width:100%; max-width:none; }
+    .price{ font-size:15px; }
+    .buy-btn{ padding:8px 16px; font-size:12px; }
 }
 </style>
 </head>
 <body>
 
+<!-- ===== NAVBAR ===== -->
 <div class="header">
-    <div class="logo">Artatix</div>
+    <a href="index.html" style="display:flex;align-items:center;">
+        <img src="logo.png" alt="Artatix" class="logo-img">
+    </a>
     <div class="header-right">
         <div class="lang">🇮🇩 ID</div>
         <div class="circle">🔍</div>
@@ -430,11 +436,12 @@ h2{
     </div>
 </div>
 
+<!-- ===== BANNER ===== -->
 <div class="banner-container">
-    <!-- Ganti src dengan banner Anda -->
     <img class="banner" src="banner.png" alt="Jomlo Festival 2026 Chapter Jogja">
 </div>
 
+<!-- ===== MAIN CONTENT ===== -->
 <div class="content">
 
     <div class="badge">🎵 Musik & Festival</div>
@@ -467,32 +474,29 @@ h2{
         <a href="#" class="social-btn">🎵 TikTok</a>
     </div>
 
-    <!-- Menu Redirect (Anchor Link) -->
+    <!-- ===== TABS ===== -->
     <div class="tabs">
-        <a href="#deskripsi" class="tab">Deskripsi</a>
+        <a href="#deskripsi" class="tab active">Deskripsi</a>
         <a href="#syarat" class="tab">Syarat & Ketentuan</a>
         <a href="#fasilitas" class="tab">Fasilitas</a>
     </div>
 
-    <!-- DESC CONTENT -->
+    <!-- ===== DESKRIPSI ===== -->
     <section id="deskripsi" class="content-section">
         <h2>Deskripsi</h2>
         <div class="description">
             <p><b>JOMLO FESTIVAL 2026 CHAPTER JOGJA</b></p>
-            <br>
             <p><b>“MARI KITA BERGEMBIRA BERSAMA”</b></p>
-            <br>
             <p>
                 Event ini akan mempersembahkan musik yang dibutuhkan mayoritas Gen Z dengan gabungan lineup yang menarik dan kekinian. Jomlo Festival bukan sekadar festival musik biasa, melainkan sebuah living experience yang menghadirkan hiburan dan semangat baru bagi mahasiswa serta masyarakat di Yogyakarta.
             </p>
-            <br>
             <p>
                 Konser ini menyatukan berbagai generasi dengan konsep kreatif, penuh kebersamaan, dan tentunya memberikan ruang bagi para penikmat musik independen maupun mainstream untuk bersukacita bersama di akhir pekan.
             </p>
         </div>
     </section>
 
-    <!-- TERMS CONTENT -->
+    <!-- ===== SYARAT & KETENTUAN ===== -->
     <section id="syarat" class="content-section">
         <h2>Syarat & Ketentuan</h2>
         <ol class="terms">
@@ -523,14 +527,13 @@ h2{
             <li>Pihak panitia berhak menyita barang terlarang yang ditemukan saat pemeriksaan keamanan.</li>
             <li>Dilarang membuat kerusuhan dalam situasi apapun di area venue Jomlo Festival.</li>
         </ol>
-        <br>
         <div class="agreement-box">
             SAYA TELAH MEMBACA DAN MEMAHAMI SYARAT DAN KETENTUAN PEMBELIAN DAN PENGGUNAAN TIKET DIATAS. DAN JIKA ADA PERUBAHAN ATURAN PROMOTOR, AKAN SEGERA DIINFORMASIKAN DI AKUN MEDIA SOSIAL PROMOTOR.<br><br>
             DAN SAYA MEMBERIKAN PERSETUJUAN SAYA UNTUK DIKONTRAKKAN SECARA HUKUM DENGAN SYARAT DAN KETENTUAN INI.
         </div>
     </section>
 
-    <!-- FACILITIES CONTENT -->
+    <!-- ===== FASILITAS ===== -->
     <section id="fasilitas" class="content-section">
         <h2>Fasilitas Event</h2>
         <div class="facilities-grid">
@@ -548,7 +551,7 @@ h2{
         </div>
     </section>
 
-    <!-- FOOTER -->
+    <!-- ===== FOOTER ===== -->
     <div class="footer">
         <strong>Artatix.co.id</strong>
         Platform Tiket Acara & Konser Terpercaya<br>
@@ -557,6 +560,7 @@ h2{
 
 </div>
 
+<!-- ===== FLYING BUTTON ===== -->
 <div class="sticky">
     <div class="ticket-box">
         <div class="price-info">
@@ -570,12 +574,34 @@ h2{
 </div>
 
 <script>
-// Script sederhana untuk memberi efek "Active" pada menu yang sedang diklik
+// Aktifkan tab otomatis berdasarkan scroll
+const sections = document.querySelectorAll('.content-section');
 const tabs = document.querySelectorAll('.tab');
+
+function setActiveTab(id){
+    tabs.forEach(t => {
+        t.classList.toggle('active', t.getAttribute('href') === '#' + id);
+    });
+}
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting){
+            setActiveTab(entry.target.id);
+        }
+    });
+}, { rootMargin: '-120px 0px -60% 0px', threshold: 0 });
+
+sections.forEach(section => observer.observe(section));
+
+// Klik tab tetap smooth
 tabs.forEach(tab => {
-    tab.addEventListener('click', function() {
-        tabs.forEach(t => t.classList.remove('active'));
-        this.classList.add('active');
+    tab.addEventListener('click', function(e){
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if(target){
+            target.scrollIntoView({ behavior: 'smooth' });
+        }
     });
 });
 </script>
