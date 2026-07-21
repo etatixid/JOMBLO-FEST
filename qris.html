@@ -2,293 +2,372 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>Artatix - QRIS Pembayaran</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 <style>
-:root {
-  --primary: #4F46E5; /* Indigo Profesional */
-  --primary-dark: #3730A3;
-  --primary-light: #818CF8;
-  --primary-glow: rgba(79, 70, 229, 0.2);
-  --primary-subtle: rgba(79, 70, 229, 0.05);
-  --bg-main: #F8FAFC;
-  --card-bg: #FFFFFF;
-  --card-border: #E2E8F0;
-  --text-main: #1E293B;
-  --text-muted: #64748B;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    -webkit-tap-highlight-color: transparent;
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-
 body {
-  min-height: 100vh;
-  overflow-x: hidden;
-  padding: 15px;
-  background: var(--bg-main);
-  color: var(--text-main);
-  opacity: 0;
-  transition: opacity 0.5s ease;
+    background: #F4F6FA;
+    color: #1F2937;
+    padding-bottom: 40px;
+    opacity: 0;
+    transition: opacity 0.5s ease;
 }
 
 body.no-scroll { overflow: hidden !important; }
 
-.container { max-width: 780px; margin: auto; padding-bottom: 30px; }
-
-.card {
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
-  border-radius: 20px;
-  padding: 24px;
-  margin-bottom: 16px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
-  animation: fadeUp 0.6s ease backwards;
+/* ================= CONTAINER (Carrd Style) ================= */
+.container {
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+    background: #fff;
+    min-height: 100vh;
+    box-shadow: 0 0 40px rgba(0,0,0,0.05);
+    position: relative;
 }
 
-.card:nth-child(2) { animation-delay: 0.08s; }
-.card:nth-child(3) { animation-delay: 0.16s; }
-.card:nth-child(4) { animation-delay: 0.24s; }
+/* ================= HEADER ================= */
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    position: sticky;
+    top: 0;
+    background: #fff;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+}
 
-@keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
 
-/* ── Logo Area ── */
-.logo { text-align: center; margin-bottom: 8px; animation: fadeUp 0.5s ease backwards; }
-.logo-event { width: 100%; max-width: 320px; height: auto; display: block; margin: 0 auto 12px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); }
-.logo-brand { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 8px; }
-.logo-brand img { width: 28px; height: 28px; border-radius: 8px; object-fit: contain; }
-.logo-brand span { font-size: 14px; font-weight: 700; letter-spacing: 1px; color: var(--primary); }
+.logo-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    object-fit: cover;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
 
-/* ── Order Info ── */
-.order-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; color: var(--text-muted); margin-bottom: 4px; }
-.order-id { color: var(--primary); font-weight: 800; font-size: 15px; font-family: monospace; letter-spacing: 0.5px; word-break: break-all; }
-.total-label { font-size: 12px; font-weight: 600; color: var(--text-muted); margin-bottom: 4px; }
-.total-price { font-size: 2.6rem; font-weight: 900; line-height: 1.1; color: var(--text-main); }
+.logo-text {
+    font-size: 20px;
+    font-weight: 800;
+    color: #1F2937;
+    letter-spacing: -0.5px;
+}
 
-.detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 16px; margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--card-border); }
-.detail-item { font-size: 12px; color: var(--text-muted); line-height: 1.4; }
-.detail-item span { display: block; color: var(--text-main); font-weight: 600; font-size: 14px; margin-top: 2px; word-break: break-word; }
+.lang {
+    background: #F4F6FA;
+    padding: 8px 14px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #4B5563;
+}
 
-/* ── Timer ── */
-.timer-box { text-align: center; padding: 16px; border-radius: 16px; background: #FFFBEB; border: 1px solid #FCD34D; margin-bottom: 20px; }
+/* ================= CONTENT ================= */
+.content {
+    padding: 24px 20px;
+}
+
+.page-title {
+    font-size: 20px;
+    font-weight: 800;
+    margin-bottom: 4px;
+    color: #111827;
+    text-align: center;
+}
+
+.page-subtitle {
+    font-size: 13px;
+    color: #6B7280;
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+/* ================= CARDS ================= */
+.card {
+    background: #fff;
+    border: 1px solid #E5E7EB;
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+}
+
+/* ================= ORDER INFO ================= */
+.order-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: #6B7280; margin-bottom: 4px; }
+.order-id { color: #3561FF; font-weight: 800; font-size: 14px; font-family: monospace; letter-spacing: 0.5px; word-break: break-all; }
+.total-label { font-size: 12px; font-weight: 600; color: #6B7280; margin-top: 16px; margin-bottom: 4px; }
+.total-price { font-size: 28px; font-weight: 900; line-height: 1.1; color: #1F2937; }
+
+.detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 16px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #E5E7EB; }
+.detail-item { font-size: 11px; color: #6B7280; line-height: 1.4; text-transform: uppercase; letter-spacing: 0.5px; }
+.detail-item span { display: block; color: #1F2937; font-weight: 600; font-size: 14px; margin-top: 2px; word-break: break-word; text-transform: none; letter-spacing: 0; }
+
+/* ================= TIMER ================= */
+.timer-box { text-align: center; padding: 14px; border-radius: 12px; background: #FFFBEB; border: 1px solid #FCD34D; margin-bottom: 20px; }
 .timer-label { font-size: 12px; font-weight: 600; color: #92400E; margin-bottom: 4px; }
-.timer { font-size: 2.8rem; font-weight: 900; color: #D97706; letter-spacing: 2px; }
+.timer { font-size: 32px; font-weight: 900; color: #D97706; letter-spacing: 2px; }
 .timer.urgent { color: #DC2626; animation: timerPulse 0.5s ease infinite; }
 @keyframes timerPulse { 50% { opacity: 0.6; } }
 
-/* ── QR Code Professional Frame ── */
+/* ================= QR CODE ================= */
 .qr-card { text-align: center; }
 .qr-wrap {
   display: inline-block; background: #ffffff; padding: 20px; border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); border: 1px solid var(--card-border);
-  position: relative; width: 320px; max-width: 100%; color: #333;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); border: 1px solid #E5E7EB;
+  position: relative; width: 100%; max-width: 320px; color: #333;
 }
-.qr-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; padding-bottom: 12px; border-bottom: 2px dashed #E2E8F0; }
-.qr-header .merchant { display: flex; align-items: center; gap: 8px; font-weight: 800; color: #1E293B; font-size: 15px; text-align: left; }
-.qr-header .merchant i { color: var(--primary); }
-.qr-header .nmid { font-size: 10px; color: #64748B; font-weight: 600; text-align: right; }
+.qr-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; padding-bottom: 12px; border-bottom: 2px dashed #E5E7EB; }
+.qr-header .merchant { display: flex; align-items: center; gap: 8px; font-weight: 800; color: #1F2937; font-size: 14px; text-align: left; }
+.qr-header .merchant i { color: #3561FF; }
+.qr-header .nmid { font-size: 10px; color: #6B7280; font-weight: 600; text-align: right; }
 
 .qr-img-box { background: #fff; padding: 10px; border: 1px solid #F1F5F9; border-radius: 12px; display: flex; justify-content: center; align-items: center; }
-.qr-img-box img { width: 100%; max-width: 240px; display: block; }
+.qr-img-box img { width: 100%; max-width: 220px; display: block; }
 
-.qr-footer { margin-top: 15px; display: flex; justify-content: space-between; align-items: center; padding-top: 12px; border-top: 2px dashed #E2E8F0; }
-.qr-footer .qris-label { font-size: 22px; font-weight: 900; font-style: italic; color: #1E293B; letter-spacing: 1px; }
-.qr-footer .pay-methods { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; font-size: 9px; color: #64748B; text-transform: uppercase; font-weight: 700; }
+.qr-footer { margin-top: 15px; display: flex; justify-content: space-between; align-items: center; padding-top: 12px; border-top: 2px dashed #E5E7EB; }
+.qr-footer .qris-label { font-size: 20px; font-weight: 900; font-style: italic; color: #1F2937; letter-spacing: 1px; }
+.qr-footer .pay-methods { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; font-size: 9px; color: #6B7280; text-transform: uppercase; font-weight: 700; }
 .qr-footer .pay-methods .icons { display: flex; gap: 6px; font-size: 14px; color: #475569; }
 
 .qr-badge {
-  position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--primary); color: #fff;
+  position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: #3561FF; color: #fff;
   font-size: 11px; font-weight: 700; padding: 5px 18px; border-radius: 20px; text-transform: uppercase; letter-spacing: 1px;
-  white-space: nowrap; box-shadow: 0 4px 12px var(--primary-glow); z-index: 10;
+  white-space: nowrap; box-shadow: 0 4px 12px rgba(53,97,255,0.3); z-index: 10;
 }
 
-.total-glow { margin-top: 24px; font-size: 2.4rem; font-weight: 900; color: var(--text-main); }
-.scan-hint { margin-top: 14px; font-size: 12px; color: var(--text-muted); display: flex; align-items: center; justify-content: center; gap: 6px; }
-.scan-hint i { color: var(--primary); }
+.scan-hint { margin-top: 14px; font-size: 12px; color: #6B7280; display: flex; align-items: center; justify-content: center; gap: 6px; }
+.scan-hint i { color: #3561FF; }
 
-/* ── Upload ── */
+/* ================= UPLOAD ================= */
 .upload-area {
-  border: 2px dashed var(--primary-light); border-radius: 16px; padding: 28px 20px; text-align: center; cursor: pointer;
-  background: var(--primary-subtle); transition: 0.3s ease; display: block;
+  border: 2px dashed #818CF8; border-radius: 16px; padding: 28px 20px; text-align: center; cursor: pointer;
+  background: #F4F6FA; transition: 0.3s ease; display: block;
 }
-.upload-area:hover { transform: translateY(-2px); box-shadow: 0 5px 15px var(--primary-glow); border-color: var(--primary); background: rgba(79, 70, 229, 0.08); }
-.upload-icon { font-size: 46px; margin-bottom: 10px; display: block; color: var(--primary); }
-.upload-area h2 { font-size: 16px; font-weight: 700; margin-bottom: 6px; color: var(--text-main); }
-.upload-area p { font-size: 12px; color: var(--text-muted); line-height: 1.6; }
+.upload-area:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(53,97,255,0.1); border-color: #3561FF; background: #EBF0FF; }
+.upload-icon { font-size: 40px; margin-bottom: 10px; display: block; color: #3561FF; }
+.upload-area h2 { font-size: 16px; font-weight: 700; margin-bottom: 6px; color: #1F2937; }
+.upload-area p { font-size: 12px; color: #6B7280; line-height: 1.6; }
 .upload-area .file-types { display: inline-flex; gap: 6px; margin-top: 8px; }
-.upload-area .file-types span { background: rgba(79, 70, 229, 0.1); color: var(--primary); font-size: 10px; font-weight: 700; padding: 3px 10px; border-radius: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+.upload-area .file-types span { background: rgba(53,97,255,0.1); color: #3561FF; font-size: 10px; font-weight: 700; padding: 3px 10px; border-radius: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
 
-.preview { display: none; margin-top: 16px; padding: 16px; border-radius: 16px; background: #F8FAFC; border: 1px solid var(--card-border); }
+.preview { display: none; margin-top: 16px; padding: 16px; border-radius: 16px; background: #F4F6FA; border: 1px solid #E5E7EB; }
 .preview img { width: 100%; max-height: 300px; object-fit: contain; border-radius: 12px; }
-.preview .file-name { margin-top: 10px; font-size: 13px; font-weight: 600; color: var(--primary); word-break: break-word; }
+.preview .file-name { margin-top: 10px; font-size: 13px; font-weight: 600; color: #3561FF; word-break: break-word; }
 .preview .success-msg { margin-top: 6px; font-weight: 600; font-size: 13px; color: #10B981; display: flex; align-items: center; gap: 6px; }
 
-/* ── Checkbox & Button ── */
-.checkbox-wrap { margin-top: 18px; display: flex; gap: 12px; align-items: flex-start; }
-.checkbox-wrap input[type="checkbox"] { width: 22px; height: 22px; min-width: 22px; margin-top: 1px; accent-color: var(--primary); cursor: pointer; }
-.checkbox-wrap label { font-size: 12px; line-height: 1.7; color: var(--text-muted); cursor: pointer; }
+/* ================= CHECKBOX & BUTTON ================= */
+.checkbox-wrap { margin-top: 18px; display: flex; gap: 12px; align-items: flex-start; background: #F4F6FA; padding: 12px; border-radius: 10px; border: 1px solid #E5E7EB; }
+.checkbox-wrap input[type="checkbox"] { width: 20px; height: 20px; min-width: 20px; accent-color: #3561FF; cursor: pointer; margin-top: 2px; }
+.checkbox-wrap label { font-size: 12px; line-height: 1.5; color: #4B5563; cursor: pointer; }
 
 .submit-btn {
-  width: 100%; padding: 16px; border: none; border-radius: 14px; font-weight: 700; font-size: 16px; cursor: pointer;
-  background: var(--primary); color: #fff; transition: 0.3s ease; box-shadow: 0 4px 15px var(--primary-glow); margin-top: 18px; overflow: hidden;
+  width: 100%; padding: 14px; border: none; border-radius: 12px; font-weight: 700; font-size: 14px; cursor: pointer;
+  background: #3561FF; color: #fff; transition: 0.25s ease; box-shadow: 0 4px 15px rgba(53,97,255,0.3); margin-top: 18px; overflow: hidden;
+  display: flex; justify-content: center; align-items: center; gap: 8px;
 }
-.submit-btn:hover:not(:disabled) { transform: translateY(-2px); background: var(--primary-dark); box-shadow: 0 8px 25px var(--primary-glow); }
+.submit-btn:hover:not(:disabled) { transform: translateY(-1px); background: #2143d8; box-shadow: 0 8px 20px rgba(53,97,255,0.4); }
 .submit-btn:active:not(:disabled) { transform: scale(0.98); }
-.submit-btn:disabled { opacity: 0.5; cursor: not-allowed; background: #CBD5E1; box-shadow: none; }
+.submit-btn:disabled { opacity: 0.5; cursor: not-allowed; background: #9CA3AF; box-shadow: none; }
 
-/* ── Loading Overlay Full Screen ── */
+/* ================= FOOTER ================= */
+.footer-section {
+    text-align: center;
+    padding: 40px 20px;
+    margin-top: 20px;
+    border-top: 1px solid #E5E7EB;
+}
+.footer-logo { width: 50px; height: 50px; border-radius: 12px; margin-bottom: 12px; }
+.footer-section h3 { font-size: 18px; font-weight: 800; color: #1F2937; }
+.footer-section p { font-size: 13px; color: #6B7280; margin-top: 4px; }
+.footer-contact { margin-top: 16px; display: flex; flex-direction: column; gap: 8px; }
+.footer-contact a { font-size: 14px; color: #3561FF; text-decoration: none; font-weight: 600; }
+.footer-copyright { margin-top: 24px; font-size: 12px; color: #9CA3AF; }
+
+/* ================= LOADING OVERLAY ================= */
 .loading-overlay {
-  visibility: hidden; opacity: 0; position: fixed; inset: 0; background: rgba(248, 250, 252, 0.98);
+  visibility: hidden; opacity: 0; position: fixed; inset: 0; background: rgba(244, 246, 250, 0.98);
   backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); z-index: 99999; display: flex;
   justify-content: center; align-items: center; flex-direction: column; padding: 20px; overflow: hidden;
   transition: opacity 0.4s ease, visibility 0.4s ease;
 }
 .loading-overlay.active { visibility: visible; opacity: 1; }
 
-.loading-overlay::before, .loading-overlay::after {
-  content: ''; position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.15; pointer-events: none;
-}
-.loading-overlay::before { width: 400px; height: 400px; background: var(--primary); top: -100px; left: -100px; animation: blobMove 8s ease-in-out infinite; }
-.loading-overlay::after { width: 350px; height: 350px; background: var(--primary-light); bottom: -100px; right: -100px; animation: blobMove 10s ease-in-out infinite reverse; }
-@keyframes blobMove { 0%, 100% { transform: translate(0, 0) scale(1); } 50% { transform: translate(50px, 50px) scale(1.2); } }
-
-.loading-content { position: relative; z-index: 2; text-align: center; max-width: 420px; width: 100%; background: #fff; padding: 32px 24px; border-radius: 24px; box-shadow: 0 20px 50px rgba(0,0,0,0.05); border: 1px solid #E2E8F0; }
-.progress-ring-wrap { position: relative; width: 160px; height: 160px; margin: 0 auto 28px; }
+.loading-content { position: relative; z-index: 2; text-align: center; max-width: 400px; width: 100%; background: #fff; padding: 32px 24px; border-radius: 24px; box-shadow: 0 20px 50px rgba(0,0,0,0.05); border: 1px solid #E5E7EB; }
+.progress-ring-wrap { position: relative; width: 140px; height: 140px; margin: 0 auto 24px; }
 .progress-ring { transform: rotate(-90deg); width: 100%; height: 100%; }
-.progress-ring-bg { fill: none; stroke: #F1F5F9; stroke-width: 8; }
-.progress-ring-fill { fill: none; stroke: url(#gradStroke); stroke-width: 8; stroke-linecap: round; transition: stroke-dashoffset 0.3s linear; }
+.progress-ring-bg { fill: none; stroke: #F4F6FA; stroke-width: 8; }
+.progress-ring-fill { fill: none; stroke: #3561FF; stroke-width: 8; stroke-linecap: round; transition: stroke-dashoffset 0.3s linear; }
 .progress-percent { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; }
-.progress-percent .num { font-size: 2.4rem; font-weight: 800; color: var(--text-main); line-height: 1; }
-.progress-percent .pct { font-size: 1rem; font-weight: 700; color: var(--primary); margin-top: 2px; }
+.progress-percent .num { font-size: 2.2rem; font-weight: 800; color: #1F2937; line-height: 1; }
+.progress-percent .pct { font-size: 0.9rem; font-weight: 700; color: #3561FF; margin-top: 2px; }
 
-.progress-icon { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); width: 40px; height: 40px; border-radius: 50%; background: var(--primary); display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px var(--primary-glow); z-index: 3; }
+.progress-icon { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); width: 40px; height: 40px; border-radius: 50%; background: #3561FF; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(53,97,255,0.3); z-index: 3; }
 .progress-icon i { color: #fff; font-size: 16px; animation: iconSpin 2s linear infinite; }
 @keyframes iconSpin { to { transform: rotate(360deg); } }
 
-.loading-title { font-size: 1.4rem; font-weight: 700; margin-bottom: 8px; color: var(--text-main); }
-.loading-subtitle { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 24px; min-height: 20px; }
+.loading-title { font-size: 1.3rem; font-weight: 700; margin-bottom: 8px; color: #1F2937; }
+.loading-subtitle { font-size: 0.85rem; color: #6B7280; margin-bottom: 20px; min-height: 20px; }
 
 .loading-steps { display: flex; flex-direction: column; gap: 8px; text-align: left; margin-top: 8px; }
-.step-item { display: flex; align-items: center; gap: 12px; padding: 10px 14px; border-radius: 10px; background: #F8FAFC; border: 1px solid #E2E8F0; opacity: 0.5; transition: all 0.4s ease; }
-.step-item.active { opacity: 1; background: var(--primary-subtle); border-color: var(--primary-light); transform: translateX(4px); }
+.step-item { display: flex; align-items: center; gap: 12px; padding: 10px 14px; border-radius: 10px; background: #F4F6FA; border: 1px solid #E5E7EB; opacity: 0.5; transition: all 0.4s ease; }
+.step-item.active { opacity: 1; background: #EBF0FF; border-color: #818CF8; transform: translateX(4px); }
 .step-item.done { opacity: 1; background: #F0FDF4; border-color: #86EFAC; }
-.step-icon { width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; background: #E2E8F0; color: #64748B; flex-shrink: 0; }
-.step-item.active .step-icon { background: var(--primary); color: #fff; }
+.step-icon { width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; background: #E5E7EB; color: #6B7280; flex-shrink: 0; }
+.step-item.active .step-icon { background: #3561FF; color: #fff; }
 .step-item.done .step-icon { background: #10B981; color: #fff; }
-.step-text { font-size: 0.85rem; font-weight: 600; color: var(--text-main); }
+.step-text { font-size: 0.85rem; font-weight: 600; color: #1F2937; }
 .step-item.active .step-icon i { animation: iconSpin 1.5s linear infinite; }
 
-.loading-bar-wrap { margin-top: 24px; width: 100%; height: 8px; background: #F1F5F9; border-radius: 10px; overflow: hidden; }
-.loading-bar { height: 100%; width: 0%; background: var(--primary); border-radius: 10px; transition: width 0.3s linear; }
-.loading-time { margin-top: 10px; font-size: 0.75rem; color: var(--text-muted); font-family: monospace; letter-spacing: 1px; }
-
-/* ── Responsive ── */
-@media (max-width: 600px) {
-  .timer { font-size: 2.2rem; } .total-price { font-size: 2rem; } .total-glow { font-size: 2rem; } .qr-wrap { width: 100%; } .detail-grid { grid-template-columns: 1fr; gap: 8px; }
-}
+.loading-bar-wrap { margin-top: 20px; width: 100%; height: 8px; background: #F4F6FA; border-radius: 10px; overflow: hidden; }
+.loading-bar { height: 100%; width: 0%; background: #3561FF; border-radius: 10px; transition: width 0.3s linear; }
+.loading-time { margin-top: 10px; font-size: 0.75rem; color: #6B7280; font-family: monospace; letter-spacing: 1px; }
 </style>
 </head>
 <body>
 
 <div class="container">
-  <div class="logo">
-    <!-- Menggunakan banner.png sesuai file lokal -->
-    <img src="banner.png" alt="Jomlo Festival 2026" class="logo-event">
-    <div class="logo-brand">
-      <img src="logo.png" alt="Artatix">
-      <span>Artatix</span>
-    </div>
-  </div>
 
-  <div class="card">
-    <div class="order-label">Order ID</div>
-    <div id="orderId" class="order-id">-</div>
-    <br>
-    <div class="total-label">Total Pembayaran</div>
-    <div id="total" class="total-price">Rp 0</div>
-
-    <div class="detail-grid">
-      <div class="detail-item">Kategori Tiket<span id="jenisTiket">-</span></div>
-      <div class="detail-item">Jumlah Tiket<span id="jumlahTiket">0</span></div>
-      <div class="detail-item">Nama Pemesan<span id="namaPemesan">-</span></div>
-      <div class="detail-item">WhatsApp<span id="waPemesan">-</span></div>
+    <!-- ================= HEADER ================= -->
+    <div class="topbar">
+        <a href="index.html" class="logo">
+            <img src="logo.png" alt="Logo Artatix" class="logo-img">
+            <div class="logo-text">Artatix</div>
+        </a>
+        <div class="lang">🇮🇩 ID</div>
     </div>
-  </div>
 
-  <div class="card qr-card">
-    <div class="timer-box">
-      <div class="timer-label">Selesaikan pembayaran dalam</div>
-      <div id="timer" class="timer">03:00</div>
-    </div>
-    
-    <div class="qr-wrap">
-      <div class="qr-badge">Scan QRIS</div>
-      <div class="qr-header">
-        <div class="merchant">
-          <i class="fa-solid fa-store"></i>
-          <span>Artatix<br><small style="font-size: 10px; font-weight: 500; color: #64748B;">Official Merchant</small></span>
+    <!-- ================= MAIN CONTENT ================= -->
+    <div class="content">
+
+        <div class="page-title">Pembayaran QRIS</div>
+        <div class="page-subtitle">Selesaikan pembayaran untuk mengkonfirmasi pesanan</div>
+
+        <!-- RINGKASAN PESANAN -->
+        <div class="card">
+            <div class="order-label">Order ID</div>
+            <div id="orderId" class="order-id">-</div>
+            
+            <div class="total-label">Total Pembayaran</div>
+            <div id="total" class="total-price">Rp 0</div>
+
+            <div class="detail-grid">
+                <div class="detail-item">Kategori Tiket<span id="jenisTiket">-</span></div>
+                <div class="detail-item">Jumlah Tiket<span id="jumlahTiket">0</span></div>
+                <div class="detail-item">Nama Pemesan<span id="namaPemesan">-</span></div>
+                <div class="detail-item">WhatsApp<span id="waPemesan">-</span></div>
+            </div>
         </div>
-        <div class="nmid">NMID : ID2024056789012</div>
-      </div>
-      
-      <div class="qr-img-box">
-        <img src="qris.png" alt="QRIS" id="qrisImg">
-      </div>
-      
-      <div class="qr-footer">
-        <div class="qris-label">QRIS</div>
-        <div class="pay-methods">
-          <span>Supported By</span>
-          <div class="icons">
-            <i class="fa-solid fa-mobile-screen-button"></i>
-            <i class="fa-solid fa-wallet"></i>
-            <i class="fa-solid fa-building-columns"></i>
-          </div>
+
+        <!-- QR CODE -->
+        <div class="card qr-card">
+            <div class="timer-box">
+                <div class="timer-label">Selesaikan pembayaran dalam</div>
+                <div id="timer" class="timer">03:00</div>
+            </div>
+            
+            <div class="qr-wrap">
+                <div class="qr-badge">Scan QRIS</div>
+                <div class="qr-header">
+                    <div class="merchant">
+                        <i class="fa-solid fa-store"></i>
+                        <span>Artatix<br><small style="font-size: 10px; font-weight: 500; color: #6B7280;">Official Merchant</small></span>
+                    </div>
+                    <div class="nmid">NMID : ID2024056789012</div>
+                </div>
+                
+                <div class="qr-img-box">
+                    <img src="qris.png" alt="QRIS" id="qrisImg">
+                </div>
+                
+                <div class="qr-footer">
+                    <div class="qris-label">QRIS</div>
+                    <div class="pay-methods">
+                        <span>Supported By</span>
+                        <div class="icons">
+                            <i class="fa-solid fa-mobile-screen-button"></i>
+                            <i class="fa-solid fa-wallet"></i>
+                            <i class="fa-solid fa-building-columns"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="scan-hint">
+                <i class="fa-solid fa-qrcode"></i>
+                Scan dengan aplikasi e-wallet atau mobile banking
+            </div>
         </div>
-      </div>
-    </div>
 
-    <div id="totalGlow" class="total-glow">Rp 0</div>
-    <div class="scan-hint">
-      <i class="fa-solid fa-qrcode"></i>
-      Scan dengan aplikasi e-wallet atau mobile banking
-    </div>
-  </div>
+        <!-- UPLOAD BUKTI -->
+        <div class="card">
+            <label for="file">
+                <div class="upload-area">
+                    <span class="upload-icon"><i class="fa-solid fa-cloud-arrow-up"></i></span>
+                    <h2>Upload Bukti Pembayaran</h2>
+                    <p>Klik area ini untuk memilih bukti transfer QRIS</p>
+                    <div class="file-types">
+                        <span>JPG</span><span>PNG</span><span>JPEG</span>
+                    </div>
+                </div>
+            </label>
+            <input id="file" hidden type="file" accept="image/*">
 
-  <div class="card">
-    <label for="file">
-      <div class="upload-area">
-        <span class="upload-icon"><i class="fa-solid fa-cloud-arrow-up"></i></span>
-        <h2>Upload Bukti Pembayaran</h2>
-        <p>Klik area ini untuk memilih bukti transfer QRIS</p>
-        <div class="file-types">
-          <span>JPG</span><span>PNG</span><span>JPEG</span>
+            <div id="preview" class="preview">
+                <img id="previewImg" alt="Preview">
+                <div id="fileName" class="file-name"></div>
+                <div class="success-msg">
+                    <i class="fa-solid fa-circle-check"></i> Bukti pembayaran berhasil dipilih
+                </div>
+            </div>
+
+            <div class="checkbox-wrap">
+                <input type="checkbox" id="cek">
+                <label for="cek">Saya menyatakan telah melakukan pembayaran dan mengunggah bukti pembayaran yang valid.</label>
+            </div>
+
+            <button id="btn" class="submit-btn" disabled>
+                <i class="fa-solid fa-lock"></i> KONFIRMASI PEMBAYARAN
+            </button>
         </div>
-      </div>
-    </label>
-    <input id="file" hidden type="file" accept="image/*">
 
-    <div id="preview" class="preview">
-      <img id="previewImg" alt="Preview">
-      <div id="fileName" class="file-name"></div>
-      <div class="success-msg">
-        <i class="fa-solid fa-circle-check"></i> Bukti pembayaran berhasil dipilih
-      </div>
+        <!-- ================= FOOTER ================= -->
+        <div class="footer-section">
+            <img src="logo.png" alt="Artatix" class="footer-logo">
+            <h3>Artatix.co.id</h3>
+            <p>Platform Tiket Acara & Konser Terpercaya</p>
+            
+            <div class="footer-contact">
+                <a href="tel:+6282137676220">📞 +62 821–3767–6220</a>
+                <a href="mailto:cs@artatix.co.id">✉️ cs@artatix.co.id</a>
+            </div>
+            
+            <div class="footer-copyright">
+                © 2026 Artatix. All Rights Reserved.
+            </div>
+        </div>
+
     </div>
-
-    <div class="checkbox-wrap">
-      <input type="checkbox" id="cek">
-      <label for="cek">Saya menyatakan telah melakukan pembayaran dan mengunggah bukti pembayaran yang valid.</label>
-    </div>
-
-    <button id="btn" class="submit-btn" disabled>
-      <i class="fa-solid fa-lock" style="margin-right:8px;font-size:14px"></i>
-      KONFIRMASI PEMBAYARAN
-    </button>
-  </div>
 </div>
 
-<!-- ── Full Screen Loading Overlay ── -->
+<!-- ================= LOADING OVERLAY ================= -->
 <div id="loading" class="loading-overlay">
   <div class="loading-content">
     <div class="progress-ring-wrap">
@@ -296,12 +375,6 @@ body.no-scroll { overflow: hidden !important; }
         <i class="fa-solid fa-credit-card"></i>
       </div>
       <svg class="progress-ring" viewBox="0 0 180 180">
-        <defs>
-          <linearGradient id="gradStroke" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#818CF8"/>
-            <stop offset="100%" stop-color="#4F46E5"/>
-          </linearGradient>
-        </defs>
         <circle class="progress-ring-bg" cx="90" cy="90" r="80"></circle>
         <circle id="progressCircle" class="progress-ring-fill" cx="90" cy="90" r="80"></circle>
       </svg>
@@ -345,8 +418,10 @@ body.no-scroll { overflow: hidden !important; }
 </div>
 
 <script>
-// ── Load order data dari form.html ──
-var order = JSON.parse(localStorage.getItem('etatix_order') || '{}');
+// ==========================================
+// 1. MENGAMBIL DATA DARI FORM.HTML
+// ==========================================
+var order = JSON.parse(localStorage.getItem('data_pemesan') || '{}');
 
 // Generate Order ID format Artatix/Jomlo
 if (!localStorage.getItem('orderId')) {
@@ -358,13 +433,15 @@ var cart = order.cart || { items: [], totalQty: 0, totalPrice: 0 };
 var totalStr = 'Rp ' + Number(cart.totalPrice || 0).toLocaleString('id-ID');
 
 document.getElementById('total').textContent = totalStr;
-document.getElementById('totalGlow').textContent = totalStr;
 document.getElementById('jenisTiket').textContent = (cart.items || []).map(function(i) { return i.jenis; }).join(', ') || '-';
 document.getElementById('jumlahTiket').textContent = cart.totalQty || 0;
 document.getElementById('namaPemesan').textContent = order.nama || '-';
-document.getElementById('waPemesan').textContent = order.wa || '-'; // Diambil langsung dari form
+document.getElementById('waPemesan').textContent = order.wa || '-'; 
 
-// ── Timer Countdown ──
+
+// ==========================================
+// 2. TIMER COUNTDOWN
+// ==========================================
 var duration = 180;
 var timerEl = document.getElementById('timer');
 var timerInterval = null;
@@ -381,7 +458,7 @@ function timerRun() {
 
   if (duration <= 0) {
     clearInterval(timerInterval);
-    location.href = 'success.html'; // Redirect jika waktu habis
+    location.href = 'index.html'; // Redirect ke home jika waktu habis
     return;
   }
   duration--;
@@ -390,7 +467,10 @@ function timerRun() {
 timerRun();
 timerInterval = setInterval(timerRun, 1000);
 
-// ── Upload & Validation ──
+
+// ==========================================
+// 3. UPLOAD & VALIDATION
+// ==========================================
 var uploaded = false;
 var fileInput = document.getElementById('file');
 var cekInput = document.getElementById('cek');
@@ -418,8 +498,11 @@ fileInput.addEventListener('change', function() {
 
 cekInput.addEventListener('change', checkButton);
 
-// ── Premium Loading Logic (3 minutes / 180 seconds) ──
-var LOADING_DURATION = 180000; // 180 detik (3 menit) dalam milidetik
+
+// ==========================================
+// 4. PREMIUM LOADING LOGIC (3 menit)
+// ==========================================
+var LOADING_DURATION = 180000; // 180 detik (3 menit)
 var loadingOverlay = document.getElementById('loading');
 var progressCircle = document.getElementById('progressCircle');
 var progressNum = document.getElementById('progressNum');
@@ -427,7 +510,7 @@ var loadingBar = document.getElementById('loadingBar');
 var loadingTime = document.getElementById('loadingTime');
 var loadingSubtitle = document.getElementById('loadingSubtitle');
 
-var CIRCUMFERENCE = 2 * Math.PI * 80; // 502.65
+var CIRCUMFERENCE = 2 * Math.PI * 80; 
 progressCircle.style.strokeDasharray = CIRCUMFERENCE;
 progressCircle.style.strokeDashoffset = CIRCUMFERENCE;
 
@@ -451,7 +534,7 @@ function formatTime(sec) {
 
 function startPremiumLoading() {
   isProcessing = true;
-  clearInterval(timerInterval); // Matikan timer hitung mundur agar tidak bentrok
+  clearInterval(timerInterval); // Matikan timer hitung mundur
 
   loadingOverlay.classList.add('active');
   document.body.classList.add('no-scroll'); // Kunci scroll body
@@ -506,7 +589,7 @@ function startPremiumLoading() {
       // Redirect ke success.html
       setTimeout(function() {
         window.location.href = 'success.html';
-      }, 1000); // Jeda 1 detik setelah 100% agar pengguna bisa melihat tulisan sukses
+      }, 1000); 
     }
   }
 
@@ -518,7 +601,9 @@ btn.addEventListener('click', function() {
   startPremiumLoading();
 });
 
-// ── Page load fade in ──
+// ==========================================
+// 5. PAGE FADE IN
+// ==========================================
 window.addEventListener('load', function() {
   document.body.style.opacity = '1';
 });
