@@ -2,452 +2,479 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>Artatix - Jomlo Festival 2026</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    -webkit-tap-highlight-color: transparent;
 }
 
-body{
-    background:#f5f5f5;
-    color:#111;
-    padding-bottom:120px;
+body {
+    background: #F4F6FA;
+    color: #1F2937;
+    padding-bottom: 90px;
 }
 
-/* ================= CONTAINER ================= */
-.container{
-    width:100%;
-    max-width:1000px;
-    margin:auto;
+/* ================= CONTAINER (Carrd Style) ================= */
+.container {
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+    background: #fff;
+    min-height: 100vh;
+    box-shadow: 0 0 40px rgba(0,0,0,0.05);
+    position: relative;
 }
 
 /* ================= HEADER ================= */
-.topbar{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:22px 20px;
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
 }
 
-.logo{
-    display:flex;
-    align-items:center;
-    gap:12px;
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
 }
 
-.logo-img{
-    width:50px;
-    height:50px;
-    border-radius:12px;
-    object-fit:cover;
-    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+.logo-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    object-fit: cover;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
 }
 
-.logo-text{
-    font-size:34px;
-    font-weight:800;
-    color:#2b2fb9;
-    letter-spacing:1px;
+.logo-text {
+    font-size: 20px;
+    font-weight: 800;
+    color: #1F2937;
+    letter-spacing: -0.5px;
 }
 
-.lang{
-    background:#eef1f7;
-    padding:14px 22px;
-    border-radius:999px;
-    display:flex;
-    align-items:center;
-    gap:10px;
-    font-size:22px;
-    font-weight:600;
+.lang {
+    background: #F4F6FA;
+    padding: 8px 14px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #4B5563;
 }
 
 /* ================= STEP ================= */
-.steps{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:22px;
-    padding:10px 0 35px;
+.steps {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 8px 20px 28px;
 }
 
-.step{
-    width:52px;
-    height:52px;
-    border-radius:50%;
-    border:2px solid #bfc4cf;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:22px;
-    font-weight:700;
-    color:#6b7280;
-    background:#fff;
+.step {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 2px solid #E5E7EB;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+    color: #9CA3AF;
+    background: #fff;
 }
 
-.step.active{
-    border-color:#3d63ff;
-    color:#3d63ff;
+.step.active {
+    border-color: #3561FF;
+    color: #3561FF;
+    background: #EBF0FF;
 }
 
-.step-title{
-    font-size:24px;
-    font-weight:700;
+.step-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: #3561FF;
 }
 
-.arrow{
-    font-size:46px;
-    color:#7a7f89;
-    margin-top:-6px;
+.arrow {
+    font-size: 20px;
+    color: #D1D5DB;
+    margin-top: -2px;
 }
 
 /* ================= BANNER ================= */
-.banner{
-    padding:0 20px;
+.banner {
+    padding: 0 20px;
 }
 
-.banner img{
-    width:100%;
-    border-radius:28px;
-    display:block;
+.banner img {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    display: block;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.06);
 }
 
-/* ================= ALERT ANIMATION ================= */
-.alert-vip{
-    margin:20px;
-    background:#dc2626;
-    border-radius:16px;
-    padding:14px 0;
-    overflow:hidden;
-    position:relative;
-    box-shadow:0 6px 20px rgba(220, 38, 38, 0.35);
+/* ================= ALERT ================= */
+.alert-vip {
+    margin: 16px 20px;
+    background: #FEF2F2;
+    border: 1px solid #FECACA;
+    border-radius: 12px;
+    padding: 10px 0;
+    overflow: hidden;
+    position: relative;
 }
 
-.alert-text{
-    display:inline-block;
-    white-space:nowrap;
-    color:#fff;
-    font-weight:800;
-    font-size:20px;
-    text-transform:uppercase;
-    letter-spacing:1px;
-    animation:scrollText 10s linear infinite;
-    padding-left:100%;
+.alert-text {
+    display: inline-block;
+    white-space: nowrap;
+    color: #DC2626;
+    font-weight: 700;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    animation: scrollText 20s linear infinite;
 }
 
 @keyframes scrollText {
     0% { transform: translateX(0); }
-    100% { transform: translateX(-100%); }
+    100% { transform: translateX(-50%); }
 }
 
 /* ================= CATEGORY ================= */
-.category-title{
-    display:flex;
-    align-items:center;
-    gap:14px;
-    padding:28px 22px 22px;
+.category-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 24px 20px 16px;
 }
 
-.ticket-icon{
-    width:34px;
-    height:34px;
-    background:linear-gradient(135deg,#3560ff,#2143d8);
-    border-radius:10px;
-    position:relative;
+.ticket-icon {
+    width: 30px;
+    height: 30px;
+    background: linear-gradient(135deg, #3561FF, #2143d8);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 16px;
 }
 
-.ticket-icon:before{
-    content:"";
-    position:absolute;
-    width:12px;
-    height:12px;
-    background:#fff;
-    left:11px;
-    top:11px;
-    border-radius:4px;
+.category-title h2 {
+    font-size: 18px;
+    font-weight: 800;
+    color: #1F2937;
 }
 
-.category-title h2{
-    font-size:28px;
-    font-weight:800;
+/* ================= TICKET CARD ================= */
+.ticket-list {
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
-/* ================= CARD ================= */
-.ticket-list{
-    padding:0 20px;
-    display:flex;
-    flex-direction:column;
-    gap:22px;
+.ticket-card {
+    background: #fff;
+    border: 1px solid #E5E7EB;
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    transition: all .3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
 }
 
-.ticket-card{
-    background:#fff;
-    border:2px solid #e4e7ec;
-    border-radius:28px;
-    overflow:hidden;
-    position:relative;
-    transition:.3s;
+.ticket-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
 }
 
-.ticket-card:hover{
-    transform:translateY(-5px);
-    box-shadow:0 12px 28px rgba(0,0,0,.12);
+.batch-tag {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: #10B981;
+    color: #fff;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 10px;
+    font-weight: 700;
+    z-index: 5;
+    box-shadow: 0 4px 10px rgba(16,185,129,0.3);
 }
 
-.ticket-card::before,
-.ticket-card::after{
-    content:"";
-    width:36px;
-    height:36px;
-    background:#f5f5f5;
-    border:2px solid #e4e7ec;
-    border-radius:50%;
-    position:absolute;
-    top:50%;
-    transform:translateY(-50%);
+.ticket-top {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 20px 24px;
+    gap: 10px;
 }
 
-.ticket-card::before{ left:-20px; }
-.ticket-card::after{ right:-20px; }
-
-.ticket-card.batch{
-    overflow:visible;
+.ticket-name {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.4;
+    color: #1F2937;
+    padding-right: 80px; /* Space for batch tag */
 }
 
-.batch-tag{
-    position:absolute;
-    top:-10px;
-    right:18px;
-    background:#22c55e;
-    color:#fff;
-    padding:6px 12px;
-    border-radius:999px;
-    font-size:12px;
-    font-weight:700;
-    z-index:5;
-    box-shadow:0 4px 12px rgba(0,0,0,.15);
+.status {
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 700;
+    display: inline-block;
 }
 
-.ticket-top{
-    display:flex;
-    justify-content:space-between;
-    align-items:flex-start;
-    padding:26px 24px 20px;
+.onsale {
+    background: #ECFDF5;
+    color: #10B981;
+    border: 1px solid #A7F3D0;
 }
 
-.ticket-name{
-    font-size:24px;
-    font-weight:800;
-    line-height:1.4;
-    text-transform:uppercase;
+.soldout {
+    background: #FEF2F2;
+    color: #EF4444;
+    border: 1px solid #FECACA;
 }
 
-.status{
-    padding:10px 16px;
-    border-radius:14px;
-    font-size:16px;
-    font-weight:700;
+/* Divider with Perfect Half-Circle Holes */
+.divider {
+    border-top: 2px dashed #E5E7EB;
+    position: relative;
+    margin: 0 24px;
 }
 
-.onsale{
-    background:#fff4d6;
-    color:#b45309;
-    animation:pulse 1.4s infinite;
+.hole {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    background: #F4F6FA; /* Matches body background */
+    border-radius: 50%;
+}
+.hole.left { left: -34px; }
+.hole.right { right: -34px; }
+
+.ticket-bottom {
+    padding: 20px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-@keyframes pulse{
-    50%{transform:scale(1.05)}
+.ticket-price {
+    font-size: 20px;
+    font-weight: 800;
+    color: #111827;
 }
 
-.soldout{
-    background:#ffe0e0;
-    color:#d22d2d;
+.select-btn {
+    border: none;
+    background: #3561FF;
+    color: #fff;
+    padding: 10px 18px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: .2s;
+}
+.select-btn:hover {
+    background: #2143d8;
 }
 
-.divider{
-    border-top:2px dashed #e5e7eb;
+.sold-btn {
+    border: none;
+    background: #E5E7EB;
+    color: #9CA3AF;
+    padding: 10px 18px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: not-allowed;
 }
 
-.ticket-bottom{
-    padding:24px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
+.qty-box {
+    display: none;
+    align-items: center;
+    gap: 10px;
 }
 
-.ticket-price{
-    font-size:28px;
-    font-weight:900;
+.qty-btn {
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 8px;
+    background: #EBF0FF;
+    color: #3561FF;
+    font-size: 18px;
+    cursor: pointer;
+    transition: .2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+}
+.qty-btn:hover {
+    background: #D6E0FF;
 }
 
-.select-btn{
-    border:none;
-    background:linear-gradient(135deg,#4870ff,#2c4de4);
-    color:#fff;
-    padding:18px 26px;
-    border-radius:20px;
-    font-size:18px;
-    font-weight:700;
-    cursor:pointer;
-    transition:.2s;
-}
-
-.select-btn:hover{
-    background:linear-gradient(135deg,#2c4de4,#4870ff);
-}
-
-.sold-btn{
-    border:none;
-    background:#d1d5db;
-    color:#6b7280;
-    padding:18px 26px;
-    border-radius:20px;
-    font-size:18px;
-    font-weight:700;
-}
-
-.qty-box{
-    display:none;
-    align-items:center;
-    gap:14px;
-}
-
-.qty-btn{
-    width:44px;
-    height:44px;
-    border:none;
-    border-radius:14px;
-    background:#2f54eb;
-    color:#fff;
-    font-size:24px;
-    cursor:pointer;
-    transition:.2s;
-}
-
-.qty-btn:hover{
-    background:#1f3dc8;
-}
-
-.qty-number{
-    min-width:30px;
-    text-align:center;
-    font-size:24px;
-    font-weight:800;
+.qty-number {
+    min-width: 24px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 800;
 }
 
 /* ================= FOOTER ================= */
-.checkout{
-    position:fixed;
-    bottom:0;
-    left:0;
-    width:100%;
-    background:#fff;
-    border-top:1px solid #e5e7eb;
-    padding:18px;
-    box-shadow:0 -6px 25px rgba(0,0,0,0.08);
+.footer-section {
+    text-align: center;
+    padding: 40px 20px;
+    margin-top: 20px;
+    border-top: 1px solid #E5E7EB;
 }
 
-.checkout-wrap{
-    max-width:1000px;
-    margin:auto;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:16px;
+.footer-logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    margin-bottom: 12px;
 }
 
-.total small{
-    font-size:14px;
-    color:#666;
+.footer-section h3 {
+    font-size: 18px;
+    font-weight: 800;
+    color: #1F2937;
 }
 
-.total h3{
-    margin-top:5px;
-    font-size:28px;
-    font-weight:900;
+.footer-section p {
+    font-size: 13px;
+    color: #6B7280;
+    margin-top: 4px;
 }
 
-.buy-btn{
-    border:none;
-    background:linear-gradient(135deg,#4870ff,#2d4de5);
-    color:#fff;
-    padding:18px 28px;
-    border-radius:18px;
-    font-size:17px;
-    font-weight:800;
-    min-width:190px;
-    cursor:pointer;
-    transition:.2s;
+.footer-contact {
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 
-.buy-btn:hover{
-    background:linear-gradient(135deg,#2d4de5,#4870ff);
+.footer-contact a {
+    font-size: 14px;
+    color: #3561FF;
+    text-decoration: none;
+    font-weight: 600;
 }
 
-.buy-btn:disabled{
-    background:#cfd5e3;
-    cursor:not-allowed;
+.footer-copyright {
+    margin-top: 24px;
+    font-size: 12px;
+    color: #9CA3AF;
 }
 
-.loader{
-    width:24px;
-    height:24px;
-    border:3px solid rgba(255,255,255,0.3);
-    border-top:3px solid #fff;
-    border-radius:50%;
-    animation:spin 1s linear infinite;
-    margin:auto;
+/* ================= CHECKOUT FOOTER ================= */
+.checkout {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid #E5E7EB;
+    padding: 12px 20px;
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.05);
+    z-index: 100;
 }
 
-@keyframes spin{
-    100%{ transform:rotate(360deg); }
+.checkout-wrap {
+    max-width: 480px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
 }
 
-/* ================= MOBILE ================= */
-@media(max-width:768px){
-    body{ zoom:0.88; }
-    .container{ max-width:100%; }
-    .topbar{ padding:18px 16px; }
-    
-    .logo-img{ width:42px; height:42px; }
-    .logo-text{ font-size:28px; }
-    
-    .lang{ padding:10px 18px; font-size:18px; }
+.total small {
+    display: block;
+    font-size: 12px;
+    color: #6B7280;
+}
 
-    .steps{ gap:14px; padding:0 16px 26px; }
-    .step{ width:44px; height:44px; font-size:18px; }
-    .step-title{ font-size:20px; }
-    .arrow{ font-size:34px; }
+.total h3 {
+    margin-top: 2px;
+    font-size: 20px;
+    font-weight: 800;
+    color: #111827;
+}
 
-    .banner{ padding:0 16px; }
-    .banner img{ border-radius:22px; }
-    
-    .alert-vip{ margin:16px; }
-    .alert-text{ font-size:16px; }
+.buy-btn {
+    border: none;
+    background: #3561FF;
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 800;
+    min-width: 160px;
+    cursor: pointer;
+    transition: .2s;
+    box-shadow: 0 4px 15px rgba(53,97,255,0.3);
+}
+.buy-btn:hover {
+    background: #2143d8;
+    transform: translateY(-2px);
+}
+.buy-btn:disabled {
+    background: #E5E7EB;
+    color: #9CA3AF;
+    box-shadow: none;
+    cursor: not-allowed;
+    transform: none;
+}
 
-    .category-title{ padding:24px 18px 18px; }
-    .category-title h2{ font-size:24px; }
+.loader {
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255,255,255,0.3);
+    border-top: 3px solid #fff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: auto;
+}
 
-    .ticket-list{ padding:0 16px; gap:18px; }
-    .ticket-card{ border-radius:24px; }
-    .ticket-top{ padding:22px 20px 18px; }
-    .ticket-name{ font-size:20px; }
-    .status{ padding:8px 12px; font-size:14px; }
-    .ticket-bottom{ padding:20px; }
-    .ticket-price{ font-size:24px; }
-    .select-btn, .sold-btn{ padding:14px 20px; border-radius:16px; font-size:16px; }
-    .qty-btn{ width:40px; height:40px; font-size:20px; }
-    .qty-number{ font-size:20px; }
-    .checkout{ padding:14px; }
-    .total h3{ font-size:22px; }
-    .buy-btn{ min-width:160px; padding:14px 18px; border-radius:16px; font-size:15px; }
+@keyframes spin {
+    100% { transform: rotate(360deg); }
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 480px) {
+    .container {
+        box-shadow: none;
+    }
+    .checkout {
+        padding: 12px 16px;
+    }
+    .buy-btn {
+        min-width: 140px;
+        padding: 10px 20px;
+    }
 }
 </style>
 </head>
@@ -456,137 +483,184 @@ body{
 
 <div class="container">
 
-<!-- ================= HEADER ================= -->
-<div class="topbar">
-    <div class="logo">
-        <img src="logo.png" alt="Logo Artatix" class="logo-img">
-        <div class="logo-text">Artatix</div>
+    <!-- ================= HEADER ================= -->
+    <div class="topbar">
+        <a href="index.html" class="logo">
+            <img src="logo.png" alt="Logo Artatix" class="logo-img">
+            <div class="logo-text">Artatix</div>
+        </a>
+        <div class="lang">🇮🇩 ID</div>
     </div>
-    <div class="lang">🇮🇩 ID</div>
-</div>
 
-<!-- ================= STEP ================= -->
-<div class="steps">
-    <div class="step active">1</div>
-    <div class="step-title">Pilih Kategori</div>
-    <div class="arrow">›</div>
-    <div class="step">2</div>
-    <div class="arrow">›</div>
-    <div class="step">3</div>
-    <div class="arrow">›</div>
-    <div class="step">4</div>
-</div>
-
-<!-- ================= BANNER ================= -->
-<div class="banner">
-    <img src="banner.png" alt="Jomlo Festival 2026 Chapter Jogja">
-</div>
-
-<!-- ================= ALERT VIP ================= -->
-<div class="alert-vip">
-    <div class="alert-text">
-        ⚠️ TIKET PRESALE 3 VIP TERSISA 10 LAGI &nbsp;&nbsp;&nbsp;&nbsp; ⚠️ TIKET PRESALE 3 VIP TERSISA 10 LAGI &nbsp;&nbsp;&nbsp;&nbsp; ⚠️ TIKET PRESALE 3 VIP TERSISA 10 LAGI &nbsp;&nbsp;&nbsp;&nbsp; ⚠️ TIKET PRESALE 3 VIP TERSISA 10 LAGI
+    <!-- ================= STEP ================= -->
+    <div class="steps">
+        <div class="step active">1</div>
+        <div class="step-title">Pilih Kategori</div>
+        <div class="arrow">›</div>
+        <div class="step">2</div>
+        <div class="arrow">›</div>
+        <div class="step">3</div>
+        <div class="arrow">›</div>
+        <div class="step">4</div>
     </div>
-</div>
 
-<!-- ================= CATEGORY ================= -->
-<div class="category-title">
-    <div class="ticket-icon"></div>
-    <h2>Kategori Tiket</h2>
-</div>
+    <!-- ================= BANNER ================= -->
+    <div class="banner">
+        <img src="banner.png" alt="Jomlo Festival 2026 Chapter Jogja">
+    </div>
 
-<!-- ================= TICKET ================= -->
-<div class="ticket-list">
-
-    <!-- PRESALE 3 - BOLO AREA (VIP) [NEW] -->
-    <div class="ticket-card batch">
-        <div class="batch-tag">NEW BATCH</div>
-        <div class="ticket-top">
-            <div class="ticket-name">PRESALE 3 - BOLO AREA (VIP)</div>
-            <div class="status onsale">On Sale</div>
+    <!-- ================= ALERT VIP ================= -->
+    <div class="alert-vip">
+        <div class="alert-text">
+            ⚠️ TIKET PRESALE 3 VIP TERSISA 10 LAGI &nbsp;&nbsp;&nbsp;&nbsp; ⚠️ TIKET PRESALE 3 VIP TERSISA 10 LAGI &nbsp;&nbsp;&nbsp;&nbsp; ⚠️ TIKET PRESALE 3 VIP TERSISA 10 LAGI &nbsp;&nbsp;&nbsp;&nbsp; ⚠️ TIKET PRESALE 3 VIP TERSISA 10 LAGI &nbsp;&nbsp;&nbsp;&nbsp; ⚠️ TIKET PRESALE 3 VIP TERSISA 10 LAGI &nbsp;&nbsp;&nbsp;&nbsp;
         </div>
-        <div class="divider"></div>
-        <div class="ticket-bottom">
-            <div class="ticket-price">Rp150.000</div>
-            <button class="select-btn" id="p3_vipBtn" onclick="showQty('p3_vip')">Pilih Tiket</button>
-            <div class="qty-box" id="p3_vipBox">
-                <button class="qty-btn" onclick="minusQty('p3_vip',150000)">-</button>
-                <div class="qty-number" id="p3_vipQty">0</div>
-                <button class="qty-btn" onclick="plusQty('p3_vip',150000)">+</button>
+    </div>
+
+    <!-- ================= CATEGORY ================= -->
+    <div class="category-title">
+        <div class="ticket-icon">🎟️</div>
+        <h2>Kategori Tiket</h2>
+    </div>
+
+    <!-- ================= TICKET LIST ================= -->
+    <div class="ticket-list">
+
+        <!-- PRESALE 3 - BOLO AREA (VIP) -->
+        <div class="ticket-card">
+            <div class="batch-tag">NEW BATCH</div>
+            <div class="ticket-top">
+                <div class="ticket-name">PRESALE 3 - BOLO AREA (VIP)</div>
+                <div class="status onsale">On Sale</div>
+            </div>
+            <div class="divider">
+                <span class="hole left"></span>
+                <span class="hole right"></span>
+            </div>
+            <div class="ticket-bottom">
+                <div class="ticket-price">Rp150.000</div>
+                <button class="select-btn" id="p3_vipBtn" onclick="showQty('p3_vip')">Pilih Tiket</button>
+                <div class="qty-box" id="p3_vipBox">
+                    <button class="qty-btn" onclick="minusQty('p3_vip',150000)">-</button>
+                    <div class="qty-number" id="p3_vipQty">0</div>
+                    <button class="qty-btn" onclick="plusQty('p3_vip',150000)">+</button>
+                </div>
             </div>
         </div>
-    </div>
 
-    <!-- PRESALE 2 - JOMLO AREA (FESTIVAL) -->
-    <div class="ticket-card batch">
-        <div class="batch-tag">LIMITED TIME</div>
-        <div class="ticket-top">
-            <div class="ticket-name">PRESALE 2 - JOMLO AREA (FESTIVAL)</div>
-            <div class="status onsale">On Sale</div>
-        </div>
-        <div class="divider"></div>
-        <div class="ticket-bottom">
-            <div class="ticket-price">Rp99.999</div>
-            <button class="select-btn" id="p2_festBtn" onclick="showQty('p2_fest')">Pilih Tiket</button>
-            <div class="qty-box" id="p2_festBox">
-                <button class="qty-btn" onclick="minusQty('p2_fest',99999)">-</button>
-                <div class="qty-number" id="p2_festQty">0</div>
-                <button class="qty-btn" onclick="plusQty('p2_fest',99999)">+</button>
+        <!-- PRESALE 3 - JOMLO AREA (FESTIVAL) [NEW] -->
+        <div class="ticket-card">
+            <div class="batch-tag">NEW BATCH</div>
+            <div class="ticket-top">
+                <div class="ticket-name">PRESALE 3 - JOMLO AREA (FESTIVAL)</div>
+                <div class="status onsale">On Sale</div>
+            </div>
+            <div class="divider">
+                <span class="hole left"></span>
+                <span class="hole right"></span>
+            </div>
+            <div class="ticket-bottom">
+                <div class="ticket-price">Rp110.000</div>
+                <button class="select-btn" id="p3_festBtn" onclick="showQty('p3_fest')">Pilih Tiket</button>
+                <div class="qty-box" id="p3_festBox">
+                    <button class="qty-btn" onclick="minusQty('p3_fest',110000)">-</button>
+                    <div class="qty-number" id="p3_festQty">0</div>
+                    <button class="qty-btn" onclick="plusQty('p3_fest',110000)">+</button>
+                </div>
             </div>
         </div>
+
+        <!-- PRESALE 2 - JOMLO AREA (FESTIVAL) [SOLD OUT] -->
+        <div class="ticket-card">
+            <div class="ticket-top">
+                <div class="ticket-name">PRESALE 2 - JOMLO AREA (FESTIVAL)</div>
+                <div class="status soldout">Sold Out</div>
+            </div>
+            <div class="divider">
+                <span class="hole left"></span>
+                <span class="hole right"></span>
+            </div>
+            <div class="ticket-bottom">
+                <div class="ticket-price">Rp99.999</div>
+                <button class="sold-btn">Sold Out</button>
+            </div>
+        </div>
+
+        <!-- PRESALE 2 - BOLO AREA (VIP) -->
+        <div class="ticket-card">
+            <div class="ticket-top">
+                <div class="ticket-name">PRESALE 2 - BOLO AREA (VIP)</div>
+                <div class="status soldout">Sold Out</div>
+            </div>
+            <div class="divider">
+                <span class="hole left"></span>
+                <span class="hole right"></span>
+            </div>
+            <div class="ticket-bottom">
+                <div class="ticket-price">Rp141.126</div>
+                <button class="sold-btn">Sold Out</button>
+            </div>
+        </div>
+
+        <!-- PRESALE 1 - BOLO AREA (VIP) -->
+        <div class="ticket-card">
+            <div class="ticket-top">
+                <div class="ticket-name">PRESALE 1 - BOLO AREA (VIP)</div>
+                <div class="status soldout">Sold Out</div>
+            </div>
+            <div class="divider">
+                <span class="hole left"></span>
+                <span class="hole right"></span>
+            </div>
+            <div class="ticket-bottom">
+                <div class="ticket-price">Rp111.111</div>
+                <button class="sold-btn">Sold Out</button>
+            </div>
+        </div>
+
+        <!-- PRESALE 1 - JOMLO AREA (FESTIVAL) -->
+        <div class="ticket-card">
+            <div class="ticket-top">
+                <div class="ticket-name">PRESALE 1 - JOMLO AREA (FESTIVAL)</div>
+                <div class="status soldout">Sold Out</div>
+            </div>
+            <div class="divider">
+                <span class="hole left"></span>
+                <span class="hole right"></span>
+            </div>
+            <div class="ticket-bottom">
+                <div class="ticket-price">Rp88.888</div>
+                <button class="sold-btn">Sold Out</button>
+            </div>
+        </div>
+
     </div>
 
-    <!-- PRESALE 2 - BOLO AREA (VIP) -->
-    <div class="ticket-card">
-        <div class="ticket-top">
-            <div class="ticket-name">PRESALE 2 - BOLO AREA (VIP)</div>
-            <div class="status soldout">Sold Out</div>
+    <!-- ================= FOOTER SECTION ================= -->
+    <div class="footer-section">
+        <img src="logo.png" alt="Artatix" class="footer-logo">
+        <h3>Artatix.co.id</h3>
+        <p>Platform Tiket Acara & Konser Terpercaya</p>
+        
+        <div class="footer-contact">
+            <a href="tel:+6282137676220">📞 +62 821–3767–6220</a>
+            <a href="mailto:cs@artatix.co.id">✉️ cs@artatix.co.id</a>
         </div>
-        <div class="divider"></div>
-        <div class="ticket-bottom">
-            <div class="ticket-price">Rp141.126</div>
-            <button class="sold-btn">Sold Out</button>
-        </div>
-    </div>
-
-    <!-- PRESALE 1 - BOLO AREA (VIP) -->
-    <div class="ticket-card">
-        <div class="ticket-top">
-            <div class="ticket-name">PRESALE 1 - BOLO AREA (VIP)</div>
-            <div class="status soldout">Sold Out</div>
-        </div>
-        <div class="divider"></div>
-        <div class="ticket-bottom">
-            <div class="ticket-price">Rp111.111</div>
-            <button class="sold-btn">Sold Out</button>
-        </div>
-    </div>
-
-    <!-- PRESALE 1 - JOMLO AREA (FESTIVAL) -->
-    <div class="ticket-card">
-        <div class="ticket-top">
-            <div class="ticket-name">PRESALE 1 - JOMLO AREA (FESTIVAL)</div>
-            <div class="status soldout">Sold Out</div>
-        </div>
-        <div class="divider"></div>
-        <div class="ticket-bottom">
-            <div class="ticket-price">Rp88.888</div>
-            <button class="sold-btn">Sold Out</button>
+        
+        <div class="footer-copyright">
+            © 2026 Artatix. All Rights Reserved.
         </div>
     </div>
 
 </div>
 
-</div>
-
-<!-- ================= CHECKOUT ================= -->
+<!-- ================= CHECKOUT FOOTER ================= -->
 <div class="checkout">
     <div class="checkout-wrap">
         <div class="total">
             <small>Total (<span id="totalTicket">0</span> tiket)</small>
             <h3 id="totalPrice">Rp0</h3>
         </div>
-        <button type="button" class="buy-btn" id="buyBtn" disabled onclick="buyNow()">BELI SEKARANG</button>
+        <button type="button" class="buy-btn" id="buyBtn" disabled onclick="buyNow()">Beli Sekarang</button>
     </div>
 </div>
 
@@ -595,37 +669,45 @@ let total = 0;
 let totalTicket = 0;
 
 const qty = {
-    p3_vip:0,
-    p2_fest:0
+    p3_vip: 0,
+    p3_fest: 0
 };
 
-function showQty(id){
+function showQty(id) {
     document.getElementById(id + "Btn").style.display = "none";
     document.getElementById(id + "Box").style.display = "flex";
+    
+    // Auto add 1 when first clicked
+    if (qty[id] === 0) {
+        let price = 0;
+        if (id === 'p3_vip') price = 150000;
+        if (id === 'p3_fest') price = 110000;
+        plusQty(id, price);
+    }
 }
 
-function plusQty(id, price){
+function plusQty(id, price) {
     qty[id]++;
     total += price;
     totalTicket++;
     updateUI(id);
 }
 
-function minusQty(id, price){
-    if(qty[id] > 0){
+function minusQty(id, price) {
+    if (qty[id] > 0) {
         qty[id]--;
         total -= price;
         totalTicket--;
         updateUI(id);
 
-        if(qty[id] <= 0){
+        if (qty[id] <= 0) {
             document.getElementById(id + "Box").style.display = "none";
             document.getElementById(id + "Btn").style.display = "block";
         }
     }
 }
 
-function updateUI(id){
+function updateUI(id) {
     document.getElementById(id + "Qty").innerText = qty[id];
     document.getElementById("totalTicket").innerText = totalTicket;
     document.getElementById("totalPrice").innerText = "Rp" + total.toLocaleString("id-ID");
@@ -649,11 +731,11 @@ function buyNow() {
         });
     }
 
-    if (qty.p2_fest > 0) {
+    if (qty.p3_fest > 0) {
         items.push({
-            nama: "PRESALE 2 - JOMLO AREA (FESTIVAL)",
-            qty: qty.p2_fest,
-            harga: 99999
+            nama: "PRESALE 3 - JOMLO AREA (FESTIVAL)",
+            qty: qty.p3_fest,
+            harga: 110000
         });
     }
 
