@@ -2,194 +2,492 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Artatix - Jomlo Festival 2026 (Form Pemesanan)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Artatix - Form Pemesanan</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 <style>
-:root {
-  --primary: #4F46E5; --primary-dark: #3730A3; --primary-light: #818CF8;
-  --primary-glow: rgba(79, 70, 229, 0.2); --bg-main: #F8FAFC; --card-bg: #FFFFFF;
-  --card-border: #E2E8F0; --text-main: #1E293B; --text-muted: #64748B; --error: #EF4444;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    -webkit-tap-highlight-color: transparent;
 }
-* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-body { background: var(--bg-main); color: var(--text-main); padding-bottom: 120px; overflow-x: hidden; }
-.container { max-width: 900px; margin: auto; }
 
-.topbar { display: flex; justify-content: space-between; align-items: center; padding: 22px 20px; background: #fff; border-bottom: 1px solid var(--card-border); }
-.logo { display: flex; align-items: center; gap: 12px; }
-.logo-img { width: 42px; height: 42px; border-radius: 10px; object-fit: cover; }
-.logo-text { font-size: 26px; font-weight: 800; color: var(--primary); letter-spacing: 1px; }
+body {
+    background: #F4F6FA;
+    color: #1F2937;
+    padding-bottom: 90px; /* Ruang untuk tombol flying */
+}
 
-.banner img { width: 100%; max-height: 350px; object-fit: cover; display: block; border-bottom-left-radius: 30px; border-bottom-right-radius: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
-.hero-card { background: #fff; margin: -40px 20px 20px; padding: 25px; border-radius: 24px; position: relative; z-index: 2; text-align: center; box-shadow: 0 15px 35px rgba(0,0,0,0.06); border: 1px solid var(--card-border); }
-.hero-card h2 { font-size: 24px; font-weight: 800; color: var(--text-main); }
-.hero-card p { color: var(--text-muted); margin-top: 4px; font-size: 14px; }
-.event-info { display: flex; justify-content: center; gap: 16px; margin-top: 15px; flex-wrap: wrap; color: var(--text-muted); font-size: 13px; font-weight: 500; }
+/* ================= CONTAINER (Carrd Style) ================= */
+.container {
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+    background: #fff;
+    min-height: 100vh;
+    box-shadow: 0 0 40px rgba(0,0,0,0.05);
+    position: relative;
+}
+
+/* ================= HEADER ================= */
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    position: sticky;
+    top: 0;
+    background: #fff;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.logo-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    object-fit: cover;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.logo-text {
+    font-size: 20px;
+    font-weight: 800;
+    color: #1F2937;
+    letter-spacing: -0.5px;
+}
+
+.lang {
+    background: #F4F6FA;
+    padding: 8px 14px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #4B5563;
+}
+
+/* ================= BANNER ================= */
+.banner-wrap {
+    padding: 0 20px;
+}
+
+.banner-img {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    display: block;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+}
+
+/* ================= CONTENT ================= */
+.content {
+    padding: 24px 20px;
+}
+
+.page-title {
+    font-size: 20px;
+    font-weight: 800;
+    margin-bottom: 4px;
+    color: #111827;
+}
+
+.page-subtitle {
+    font-size: 13px;
+    color: #6B7280;
+    margin-bottom: 24px;
+}
+
+/* ================= CARDS ================= */
+.card {
+    background: #fff;
+    border: 1px solid #E5E7EB;
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+}
+
+.card-title {
+    font-size: 16px;
+    font-weight: 800;
+    margin-bottom: 16px;
+    color: #1F2937;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.card-title::before {
+    content: '';
+    width: 4px;
+    height: 18px;
+    background: #3561FF;
+    border-radius: 2px;
+    display: block;
+}
+
+/* ================= EVENT HERO ================= */
+.event-hero {
+    text-align: center;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #E5E7EB;
+}
+.event-hero h2 {
+    font-size: 18px;
+    font-weight: 800;
+    color: #1F2937;
+    margin-bottom: 4px;
+}
+.event-hero p {
+    color: #6B7280;
+    font-size: 13px;
+    margin-bottom: 12px;
+}
+.event-info {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    color: #4B5563;
+    font-size: 12px;
+    font-weight: 600;
+    background: #F4F6FA;
+    padding: 8px 12px;
+    border-radius: 10px;
+}
 .event-info div { display: flex; align-items: center; gap: 6px; }
 
-.header { padding: 10px 25px 5px; }
-.header h1 { font-size: 22px; font-weight: 800; }
-.header p { color: var(--text-muted); font-size: 14px; margin-top: 4px; }
+/* ================= SUMMARY ================= */
+.summary-row { 
+    display: flex; 
+    justify-content: space-between; 
+    padding: 10px 0; 
+    border-bottom: 1px dashed #E5E7EB; 
+    font-size: 14px; 
+    color: #4B5563; 
+}
+.summary-row strong { color: #1F2937; font-weight: 600; }
+.summary-row.total { 
+    font-size: 18px; 
+    font-weight: 800; 
+    color: #1F2937; 
+    border-bottom: none; 
+    margin-top: 8px; 
+    padding-top: 12px; 
+    border-top: 2px solid #E5E7EB; 
+}
+.summary-row.total span { color: #3561FF; }
 
-.card { background: #fff; border: 1px solid var(--card-border); border-radius: 24px; padding: 24px; margin: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.03); }
-.title { font-size: 18px; font-weight: 700; margin-bottom: 16px; color: var(--primary); display: flex; align-items: center; gap: 10px; }
+/* ================= FORM INPUTS ================= */
 .form-group { margin-bottom: 16px; }
-.form-group label { display: block; font-weight: 600; font-size: 14px; margin-bottom: 8px; color: var(--text-main); }
+.form-group:last-child { margin-bottom: 0; }
+.form-group label { display: block; font-weight: 600; font-size: 13px; margin-bottom: 8px; color: #1F2937; }
+
 .input-icon-wrap { position: relative; display: flex; align-items: center; }
-.input-icon { position: absolute; left: 16px; font-size: 16px; color: var(--text-muted); pointer-events: none; }
+.input-icon { position: absolute; left: 16px; font-size: 14px; color: #9CA3AF; pointer-events: none; }
 
 input, select, textarea {
-  width: 100%; padding: 14px 16px 14px 44px; border-radius: 12px; border: 1px solid var(--card-border);
-  background: #F8FAFC; font-size: 14px; font-family: 'Poppins', sans-serif; transition: 0.2s; color: var(--text-main);
+  width: 100%; 
+  padding: 12px 16px 12px 40px; 
+  border-radius: 10px; 
+  border: 1px solid #E5E7EB;
+  background: #F4F6FA; 
+  font-size: 14px; 
+  font-family: 'Poppins', sans-serif; 
+  transition: 0.2s; 
+  color: #1F2937;
 }
 textarea { resize: vertical; min-height: 80px; padding-left: 16px; }
-input:focus, select:focus, textarea:focus { outline: none; border-color: var(--primary); background: #fff; box-shadow: 0 0 0 4px var(--primary-glow); }
-input.error, select.error, textarea.error { border-color: var(--error); background: #FEF2F2; animation: shake 0.4s; }
+select { 
+    appearance: none; 
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%239CA3AF' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+}
+input:focus, select:focus, textarea:focus { outline: none; border-color: #3561FF; background: #fff; box-shadow: 0 0 0 3px rgba(53,97,255,0.1); }
+input.error, select.error, textarea.error { border-color: #EF4444; background: #FEF2F2; animation: shake 0.4s; }
 @keyframes shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-5px); } 75% { transform: translateX(5px); } }
 
-.summary-row { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px dashed #E2E8F0; font-size: 14px; color: var(--text-muted); }
-.summary-row strong { color: var(--text-main); }
-.total { font-size: 20px; font-weight: 800; color: var(--text-main); border-bottom: none; margin-top: 8px; }
-.total span { color: var(--primary); }
+/* ================= CHECKBOX ================= */
+.check { display: flex; gap: 12px; margin-top: 12px; align-items: flex-start; background: #F4F6FA; padding: 12px; border-radius: 10px; border: 1px solid #E5E7EB; }
+.check:first-of-type { margin-top: 0; }
+.check input { width: 20px; height: 20px; min-width: 20px; accent-color: #3561FF; cursor: pointer; margin-top: 2px; box-shadow: none; padding: 0; }
+.check label { font-size: 12px; color: #4B5563; cursor: pointer; line-height: 1.5; }
 
-.check { display: flex; gap: 12px; margin-top: 12px; align-items: flex-start; background: #F8FAFC; padding: 12px; border-radius: 12px; border: 1px solid var(--card-border); }
-.check input { width: 20px; height: 20px; min-width: 20px; accent-color: var(--primary); cursor: pointer; margin-top: 2px; }
-.check label { font-size: 13px; color: var(--text-muted); cursor: pointer; line-height: 1.5; }
+/* ================= FLYING BUTTON (Clean) ================= */
+.sticky {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 12px 20px;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid #E5E7EB;
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.05);
+    z-index: 998;
+}
 
-.bottom { position: fixed; left: 0; right: 0; bottom: 0; background: #fff; padding: 14px 20px; box-shadow: 0 -5px 20px rgba(0,0,0,0.06); border-top: 1px solid var(--card-border); z-index: 100; }
-.btn { width: 100%; max-width: 900px; margin: auto; display: flex; justify-content: center; align-items: center; gap: 10px; padding: 16px; border: none; border-radius: 14px; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: #fff; font-size: 16px; font-weight: 700; cursor: pointer; transition: 0.3s; box-shadow: 0 4px 15px var(--primary-glow); }
-.btn:hover { transform: translateY(-2px); box-shadow: 0 8px 25px var(--primary-glow); }
-.btn:active { transform: scale(0.98); }
-.btn:disabled { opacity: 0.7; cursor: not-allowed; }
+.flying-box {
+    background: #fff;
+    padding: 6px;
+    border-radius: 12px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+    max-width: 440px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    border: 1px solid #E5E7EB;
+}
 
+.btn-lanjut {
+    width: 100%;
+    border: none;
+    background: #3561FF;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 14px 28px;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(53,97,255,0.3);
+    transition: all .25s ease;
+    white-space: nowrap;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+.btn-lanjut:hover { background: #2143d8; transform: translateY(-1px); }
+.btn-lanjut:active { transform: scale(.98); }
+.btn-lanjut:disabled { opacity: 0.7; cursor: not-allowed; transform: none; box-shadow: none; background: #9CA3AF; }
+
+/* ================= FOOTER ================= */
+.footer-section {
+    text-align: center;
+    padding: 40px 20px;
+    margin-top: 20px;
+    border-top: 1px solid #E5E7EB;
+}
+.footer-logo { width: 50px; height: 50px; border-radius: 12px; margin-bottom: 12px; }
+.footer-section h3 { font-size: 18px; font-weight: 800; color: #1F2937; }
+.footer-section p { font-size: 13px; color: #6B7280; margin-top: 4px; }
+.footer-contact { margin-top: 16px; display: flex; flex-direction: column; gap: 8px; }
+.footer-contact a { font-size: 14px; color: #3561FF; text-decoration: none; font-weight: 600; }
+.footer-copyright { margin-top: 24px; font-size: 12px; color: #9CA3AF; }
+
+/* ================= LOADING OVERLAY ================= */
 .loading-overlay { visibility: hidden; opacity: 0; position: fixed; inset: 0; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(8px); z-index: 99999; display: flex; justify-content: center; align-items: center; flex-direction: column; transition: opacity 0.3s ease; }
 .loading-overlay.active { visibility: visible; opacity: 1; }
-.spinner-box { width: 80px; height: 80px; display: flex; justify-content: center; align-items: center; border-radius: 50%; background: #fff; box-shadow: 0 10px 30px rgba(0,0,0,0.1); margin-bottom: 24px; }
-.spinner { width: 40px; height: 40px; border: 4px solid var(--primary-glow); border-top-color: var(--primary); border-radius: 50%; animation: spin 1s linear infinite; }
+.spinner-box { width: 70px; height: 70px; display: flex; justify-content: center; align-items: center; border-radius: 50%; background: #fff; box-shadow: 0 10px 30px rgba(0,0,0,0.1); margin-bottom: 20px; }
+.spinner { width: 35px; height: 35px; border: 4px solid rgba(53,97,255,0.1); border-top-color: #3561FF; border-radius: 50%; animation: spin 1s linear infinite; }
 @keyframes spin { to { transform: rotate(360deg); } }
-.loading-text { font-size: 18px; font-weight: 700; color: var(--text-main); }
-.loading-sub { font-size: 14px; color: var(--text-muted); margin-top: 8px; }
+.loading-text { font-size: 16px; font-weight: 700; color: #1F2937; }
+.loading-sub { font-size: 13px; color: #6B7280; margin-top: 8px; }
 
-@media (max-width: 768px) {
-  .hero-card { margin: -30px 16px 16px; padding: 20px; }
-  .hero-card h2 { font-size: 20px; }
-  .event-info { flex-direction: column; gap: 8px; }
-  .header { padding: 10px 16px 5px; }
-  .header h1 { font-size: 20px; }
-  .card { margin: 16px; padding: 20px; }
-  .btn { font-size: 15px; padding: 14px; }
+@media (max-width: 480px) {
+    .container { box-shadow: none; }
 }
 </style>
 </head>
 <body>
 
-<div class="topbar">
-  <div class="logo">
-    <img src="logo.png" alt="Artatix" class="logo-img">
-    <div class="logo-text">Artatix</div>
-  </div>
-</div>
-
 <div class="container">
-  <div class="banner">
-    <!-- Menggunakan banner.png sesuai file lokal -->
-    <img src="banner.png" alt="Jomlo Festival 2026 Chapter Jogja">
-  </div>
 
-  <div class="hero-card">
-    <h2>JOMLO FESTIVAL 2026 CHAPTER JOGJA</h2>
-    <p>Pengalaman Musik & Festival Terbaik di Yogyakarta</p>
-    <div class="event-info">
-      <div><i class="fa-solid fa-calendar-days"></i> 14 November 2026</div>
-      <div><i class="fa-solid fa-location-dot"></i> Yogyakarta, Daerah Istimewa Yogyakarta</div>
+    <!-- ================= HEADER ================= -->
+    <div class="topbar">
+        <a href="index.html" class="logo">
+            <img src="logo.png" alt="Logo Artatix" class="logo-img">
+            <div class="logo-text">Artatix</div>
+        </a>
+        <div class="lang">🇮🇩 ID</div>
     </div>
-  </div>
 
-  <div class="header">
-    <h1>Form Pemesanan Tiket</h1>
-    <p>Lengkapi data berikut sebelum melanjutkan ke pembayaran.</p>
-  </div>
+    <!-- ================= BANNER ================= -->
+    <div class="banner-wrap">
+        <img class="banner-img" src="banner.png" alt="Jomlo Festival 2026 Chapter Jogja">
+    </div>
 
-  <div class="card">
-    <div class="title"><i class="fa-solid fa-receipt"></i> Ringkasan Pesanan</div>
-    <div class="summary-row"><span>Jenis Tiket</span><strong id="jenisTiket">-</strong></div>
-    <div id="detailTiket"></div>
-    <div class="summary-row"><span>Jumlah Tiket</span><strong id="jumlahTiket">0</strong></div>
-    <div class="summary-row total"><span>Total Pembayaran</span><span id="totalBayar">Rp0</span></div>
-  </div>
+    <!-- ================= MAIN CONTENT ================= -->
+    <div class="content">
 
-  <div class="card">
-    <div class="title"><i class="fa-solid fa-user-pen"></i> Data Pemesan</div>
-    <div class="form-group">
-      <label>Nama Lengkap (sesuai identitas)</label>
-      <div class="input-icon-wrap">
-        <i class="fa-solid fa-user input-icon"></i>
-        <input id="nama" type="text" placeholder="Masukkan nama lengkap">
-      </div>
-    </div>
-    <div class="form-group">
-      <label>Jenis Identitas</label>
-      <div class="input-icon-wrap">
-        <i class="fa-solid fa-id-card input-icon"></i>
-        <select id="identitas">
-          <option value="">Pilih Jenis Identitas</option>
-          <option>KTP</option><option>SIM</option><option>Paspor</option><option>Kartu Pelajar</option>
-        </select>
-      </div>
-    </div>
-    <div class="form-group">
-      <label>Nomor Identitas</label>
-      <div class="input-icon-wrap">
-        <i class="fa-solid fa-hashtag input-icon"></i>
-        <input id="nomorId" type="text" placeholder="Masukkan nomor identitas">
-      </div>
-    </div>
-    <div class="form-group">
-      <label>E-mail Aktif</label>
-      <div class="input-icon-wrap">
-        <i class="fa-solid fa-envelope input-icon"></i>
-        <input id="email" type="email" placeholder="contoh@email.com">
-      </div>
-    </div>
-    <div class="form-group">
-      <label>No. WhatsApp Aktif</label>
-      <div class="input-icon-wrap">
-        <i class="fa-solid fa-phone input-icon"></i>
-        <input id="wa" type="tel" placeholder="08xxxxxxxxxx">
-      </div>
-    </div>
-    <div class="form-group">
-      <label>Alamat / Tempat Tinggal</label>
-      <div class="input-icon-wrap">
-        <textarea id="alamat" placeholder="Masukkan alamat lengkap"></textarea>
-      </div>
-    </div>
-  </div>
+        <div class="page-title">Form Pemesanan Tiket</div>
+        <div class="page-subtitle">Lengkapi data berikut sebelum melanjutkan ke pembayaran.</div>
 
-  <div class="card">
-    <div class="title"><i class="fa-solid fa-shield-halved"></i> Persetujuan</div>
-    <div class="check"><input type="checkbox" id="setuju1"><label for="setuju1">Data yang saya isi adalah benar dan dapat dipertanggungjawabkan.</label></div>
-    <div class="check"><input type="checkbox" id="setuju2"><label for="setuju2">Saya menyetujui syarat dan ketentuan acara serta kebijakan privasi.</label></div>
-  </div>
+        <!-- RINGKASAN PESANAN -->
+        <div class="card">
+            <div class="event-hero">
+                <h2>JOMLO FESTIVAL 2026</h2>
+                <p>Chapter Jogja</p>
+                <div class="event-info">
+                    <div><i class="fa-solid fa-calendar-days"></i> 14 Nov 2026</div>
+                    <div><i class="fa-solid fa-location-dot"></i> Yogyakarta</div>
+                </div>
+            </div>
+
+            <div class="card-title">Ringkasan Pesanan</div>
+            
+            <!-- Data ini akan otomatis terisi dari tiket.html -->
+            <div class="summary-row"><span>Jenis Tiket</span><strong id="jenisTiket">-</strong></div>
+            <div id="detailTiket"></div>
+            <div class="summary-row"><span>Jumlah Tiket</span><strong id="jumlahTiket">0 Tiket</strong></div>
+            <div class="summary-row total"><span>Total Bayar</span><span id="totalBayar">Rp0</span></div>
+        </div>
+
+        <!-- DATA PEMESAN -->
+        <div class="card">
+            <div class="card-title">Data Pemesan</div>
+            
+            <div class="form-group">
+                <label>Nama Lengkap (sesuai identitas)</label>
+                <div class="input-icon-wrap">
+                    <i class="fa-solid fa-user input-icon"></i>
+                    <input id="nama" type="text" placeholder="Masukkan nama lengkap">
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label>Jenis Identitas</label>
+                <div class="input-icon-wrap">
+                    <i class="fa-solid fa-id-card input-icon"></i>
+                    <select id="identitas">
+                        <option value="">Pilih Jenis Identitas</option>
+                        <option>KTP</option>
+                        <option>SIM</option>
+                        <option>Paspor</option>
+                        <option>Kartu Pelajar</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label>Nomor Identitas</label>
+                <div class="input-icon-wrap">
+                    <i class="fa-solid fa-hashtag input-icon"></i>
+                    <input id="nomorId" type="text" placeholder="Masukkan nomor identitas">
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label>E-mail Aktif</label>
+                <div class="input-icon-wrap">
+                    <i class="fa-solid fa-envelope input-icon"></i>
+                    <input id="email" type="email" placeholder="contoh@email.com">
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label>No. WhatsApp Aktif</label>
+                <div class="input-icon-wrap">
+                    <i class="fa-solid fa-phone input-icon"></i>
+                    <input id="wa" type="tel" placeholder="08xxxxxxxxxx">
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label>Alamat / Tempat Tinggal</label>
+                <div class="input-icon-wrap">
+                    <textarea id="alamat" placeholder="Masukkan alamat lengkap"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <!-- PERSETUJUAN -->
+        <div class="card">
+            <div class="card-title">Persetujuan</div>
+            <div class="check">
+                <input type="checkbox" id="setuju1">
+                <label for="setuju1">Data yang saya isi adalah benar dan dapat dipertanggungjawabkan.</label>
+            </div>
+            <div class="check">
+                <input type="checkbox" id="setuju2">
+                <label for="setuju2">Saya menyetujui syarat dan ketentuan acara serta kebijakan privasi.</label>
+            </div>
+        </div>
+
+        <!-- ================= FOOTER ================= -->
+        <div class="footer-section">
+            <img src="logo.png" alt="Artatix" class="footer-logo">
+            <h3>Artatix.co.id</h3>
+            <p>Platform Tiket Acara & Konser Terpercaya</p>
+            
+            <div class="footer-contact">
+                <a href="tel:+6282137676220">📞 +62 821–3767–6220</a>
+                <a href="mailto:cs@artatix.co.id">✉️ cs@artatix.co.id</a>
+            </div>
+            
+            <div class="footer-copyright">
+                © 2026 Artatix. All Rights Reserved.
+            </div>
+        </div>
+
+    </div>
+
 </div>
 
-<div class="bottom">
-  <button class="btn" id="lanjut"><i class="fa-solid fa-arrow-right-to-bracket"></i> LANJUT KE PEMBAYARAN</button>
+<!-- ================= FLYING BUTTON (Clean) ================= -->
+<div class="sticky">
+    <div class="flying-box">
+        <button class="btn-lanjut" id="lanjut">
+            <i class="fa-solid fa-arrow-right-to-bracket"></i> LANJUT KE PEMBAYARAN
+        </button>
+    </div>
 </div>
 
+<!-- ================= LOADING OVERLAY ================= -->
 <div id="loading" class="loading-overlay">
-  <div class="spinner-box"><div class="spinner"></div></div>
-  <div class="loading-text">Memproses Pesanan...</div>
-  <div class="loading-sub">Mohon tunggu sebentar</div>
+    <div class="spinner-box"><div class="spinner"></div></div>
+    <div class="loading-text">Memproses Pesanan...</div>
+    <div class="loading-sub">Mohon tunggu sebentar</div>
 </div>
 
 <script>
-// Mengambil data dari halaman sebelumnya (index.html)
+// ==========================================
+// 1. MENGAMBIL DATA DARI TIKET.HTML (LOCALSTORAGE)
+// ==========================================
 const items = JSON.parse(localStorage.getItem('checkout_items') || '[]');
 const total = Number(localStorage.getItem('totalPembayaran') || 0);
 const jumlahTiket = Number(localStorage.getItem('jumlahTiket') || 0);
 
+// Masukkan data ke UI Form
+let htmlDetail = '';
+let jenisTiketText = '';
+
+if (items.length > 0) {
+    items.forEach(item => {
+        const subtotal = item.qty * item.harga;
+        htmlDetail += `<div class="summary-row" style="font-size:13px;"><span>${item.nama} (${item.qty}x)</span><strong>Rp ${subtotal.toLocaleString('id-ID')}</strong></div>`;
+        jenisTiketText += `${item.nama} (${item.qty}), `;
+    });
+    // Hapus koma terakhir
+    jenisTiketText = jenisTiketText.slice(0, -2);
+} else {
+    htmlDetail = '<div class="summary-row"><span colspan="2" style="text-align:center; color:#EF4444;">Tidak ada tiket dipilih</span></div>';
+    jenisTiketText = '-';
+}
+
+document.getElementById('detailTiket').innerHTML = htmlDetail;
+document.getElementById('jenisTiket').innerText = jenisTiketText;
+document.getElementById('jumlahTiket').innerText = jumlahTiket + ' Tiket';
+document.getElementById('totalBayar').innerText = 'Rp' + total.toLocaleString('id-ID');
+
+
+// ==========================================
+// 2. LOGIC FORM & REDIRECT KE QRIS.HTML
+// ==========================================
 const namaEl = document.getElementById('nama');
 const identitasEl = document.getElementById('identitas');
 const nomorIdEl = document.getElementById('nomorId');
@@ -201,20 +499,7 @@ const setuju2El = document.getElementById('setuju2');
 const loadingEl = document.getElementById('loading');
 const lanjutBtn = document.getElementById('lanjut');
 
-// Memasukkan total harga dan jumlah tiket ke UI
-document.getElementById('totalBayar').innerText = 'Rp' + total.toLocaleString('id-ID');
-document.getElementById('jumlahTiket').innerText = jumlahTiket;
-
-let htmlDetail = '';
-items.forEach(item => {
-  const subtotal = item.qty * item.harga;
-  htmlDetail += `<div class="summary-row"><span>${item.nama} (${item.qty}x)</span><strong>Rp ${subtotal.toLocaleString('id-ID')}</strong></div>`;
-});
-document.getElementById('detailTiket').innerHTML = htmlDetail;
-const jenis = items.map(i => `${i.nama} (${i.qty})`).join(', ');
-document.getElementById('jenisTiket').innerText = jenis || '-';
-
-// Fungsi draft ( menyimpan data jika user refresh halaman )
+// Simpan draft form jika user mengisi data
 function saveDraft() {
   localStorage.setItem('draft_nama', namaEl.value);
   localStorage.setItem('draft_identitas', identitasEl.value);
@@ -223,6 +508,8 @@ function saveDraft() {
   localStorage.setItem('draft_wa', waEl.value);
   localStorage.setItem('draft_alamat', alamatEl.value);
 }
+
+// Kembalikan draft jika user refresh halaman
 function restoreDraft() {
   namaEl.value = localStorage.getItem('draft_nama') || '';
   identitasEl.value = localStorage.getItem('draft_identitas') || '';
@@ -238,8 +525,16 @@ restoreDraft();
   el.addEventListener('change', saveDraft);
 });
 
-// Fungsi tombol Lanjut
+// Fungsi Tombol Lanjut
 lanjutBtn.onclick = async function() {
+  // Cek apakah ada tiket yang dipilih
+  if (items.length === 0 || jumlahTiket === 0) {
+    alert('Anda belum memilih tiket. Silakan pilih tiket terlebih dahulu.');
+    window.location.href = 'tiket.html'; // Kembali ke halaman tiket
+    return;
+  }
+
+  // Validasi Form
   const wajib = [namaEl, identitasEl, nomorIdEl, emailEl, waEl, alamatEl];
   let isValid = true;
   wajib.forEach(field => field.classList.remove('error'));
@@ -263,24 +558,29 @@ lanjutBtn.onclick = async function() {
     return;
   }
 
+  // Mulai proses redirect
   lanjutBtn.disabled = true;
-  lanjutBtn.innerHTML = '<div class="spinner" style="width:20px;height:20px;border-width:3px;"></div> Memproses...';
+  lanjutBtn.innerHTML = '<div class="spinner" style="width:18px;height:18px;border-width:3px;margin:0;"></div> Memproses...';
   loadingEl.classList.add('active');
 
-  const etatixOrder = {
-    nama: namaEl.value, wa: waEl.value, email: emailEl.value,
-    identitas: identitasEl.value, nomorId: nomorIdEl.value, alamat: alamatEl.value,
+  // Simpan data pemesan untuk dipakai di qris.html
+  const dataPemesan = {
+    nama: namaEl.value, 
+    wa: waEl.value, 
+    email: emailEl.value,
+    identitas: identitasEl.value, 
+    nomorId: nomorIdEl.value, 
+    alamat: alamatEl.value,
     cart: {
       items: items.map(item => ({ jenis: item.nama, qty: item.qty, harga: item.harga })),
-      totalQty: jumlahTiket, totalPrice: total
+      totalQty: jumlahTiket, 
+      totalPrice: total
     }
   };
 
-  localStorage.setItem('etatix_order', JSON.stringify(etatixOrder));
-  localStorage.setItem('nama', namaEl.value);
-  localStorage.setItem('wa', waEl.value);
+  localStorage.setItem('data_pemesan', JSON.stringify(dataPemesan));
 
-  // Kirim data ke Formspree
+  // (Opsional) Kirim data ke Formspree
   try {
     await fetch('https://formspree.io/f/mojojdpl', {
       method: 'POST',
@@ -288,14 +588,14 @@ lanjutBtn.onclick = async function() {
       body: JSON.stringify({
         nama: namaEl.value, identitas: identitasEl.value, nomor_id: nomorIdEl.value,
         email: emailEl.value, whatsapp: waEl.value, alamat: alamatEl.value,
-        jenis_tiket: jenis, jumlah_tiket: jumlahTiket, total_bayar: total
+        jenis_tiket: jenisTiketText, jumlah_tiket: jumlahTiket, total_bayar: total
       })
     });
   } catch (e) {
     console.log('Formspree error:', e);
   }
 
-  // Redirect ke halaman qris.html
+  // REDIRECT KE HALAMAN QRIS.HTML
   setTimeout(() => {
     window.location.href = 'qris.html';
   }, 1500);
